@@ -78,9 +78,14 @@ Screener validation:
 [Enlace del formulario](https://forms.gle/DMgwMfUx436QXyVL7)
 
 ### Resultados del formulario
-![](/result1.jpg)
----------------------
-![](/result2.jpg)
+![](/r1.png)
+![](/r2.png)
+![](/r3.png)
+![](/r4.png)
+![](/r5.png)
+![](/r6.png)
+![](/r7.png)
+![](/r8.png)
 
 ### Conclusiones de entrevistas y formulario Google
 * La edad de los jugadores en su mayoría se encuentran entre los 20 y 30 años. 
