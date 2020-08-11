@@ -71,6 +71,7 @@ Screener validation:
 
 ### Screenshots de entrevistas
 ![](/entrevista1.jpg)
+----------------------
 ![](/entrevista2.jpg)
 
 ### Formulario Google
@@ -78,6 +79,7 @@ Screener validation:
 
 ### Resultados del formulario
 ![](/result1.jpg)
+---------------------
 ![](/result2.jpg)
 
 ### Conclusiones de entrevistas y formulario Google
