@@ -7,6 +7,47 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <header>
+      <img class="img-header" src="img\pokemonlogo.png"/> 
+      <nav class="nav-phone">
+        <button class="btn-nav" id="menu"> MENÚ </button>
+      </nav>
+
+      <nav class="nav-pc"> 
+        <button class="btn-nav" id="home"> INDEX </button>
+        <button class="btn-nav" id="type"> TIPOS </button>
+        <button class="btn-nav" id="type"> BATALLA </button>
+        <button class="btn-nav" id="type"> PÓKEDEX </button>
+        <form>
+          <label for="input-search"></label>
+          <input class="input-search" id="search" placeholder="Buscar por nombre o número">
+          <button class="btn-nav" id="btn-search">
+            <img src="img\search-icon.png"/> 
+          </button>  
+        </form>
+      </nav>
+    </header>
+
+    <main>
+      <section class="orderBy">
+        <span>ORDENAR</span>
+        <button class="btn-nav" id="btn-order-letter">
+          A.Z 
+        </button>
+        <button class="btn-nav" id="btn-order-number">
+          #
+        </button>
+      </section>
+      <section id="index">
+        <img class="img-pokemon" src="img\pokemon.png"/> 
+      </section>
+    </main>
+    
+    <footer>
+
+    </footer>
+
     <script src="main.js" type="module"></script>
   </body>
 </html>

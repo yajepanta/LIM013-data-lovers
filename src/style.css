@@ -1,0 +1,55 @@
+html, body {
+    height: 100%;
+    width: 100%;
+   margin: auto;
+  }
+  
+  header {
+   
+    background-color: #14133A;
+    width: 100%;
+  }
+  
+  .img-header {
+    width: 30%;
+    height: 20%;
+  }
+  
+  .nav-pc{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+  }
+  
+  .btn-nav {
+    height: 41px;
+    padding: 5px;
+    margin: 2px;
+    background-color: #14133A;
+    color: aliceblue;
+    border: none;
+  }
+  
+  .orderBy {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .img-pokemon {
+    height: 162px;
+    width: 162px;
+  }
+  
+  /* MEDIA QUERY*/ 
+  @media screen and (max-width: 320px)  {
+          .nav-pc {
+            display: none;
+          }
+        }
