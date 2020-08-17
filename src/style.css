@@ -1,7 +1,10 @@
 html, body {
     height: 100%;
     width: 100%;
-   margin: auto;
+    margin: auto;
+    background: url("img/background.jpg");
+    font: "Helvetica";
+    
   }
   
   header {
@@ -36,7 +39,7 @@ html, body {
     border: none;
   }
   
-  .orderBy {
+  .sortBy {
     display: flex;
     width: 100%;
     justify-content: flex-end;
@@ -48,14 +51,16 @@ html, body {
   }
 
   main {
-      background-color: gray;
+    
   }
 
   .pokemon-card {
-    max-width: 650px;
+    max-width: 310.94px;
+    height: 369.91px;
     padding: 20px;
     margin: 30px auto;
-    background-color: #FFF;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 5px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, .1);
     overflow: hidden;
   }
@@ -65,6 +70,10 @@ html, body {
     margin:0px 1px;
     border:1px solid black;
     background:#eeeeee;
+  }
+
+  .index {
+    
   }
   
   /* MEDIA QUERY*/ 
