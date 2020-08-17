@@ -1,10 +1,12 @@
-// estas funciones son de ejemplo
+/* // estas funciones son de ejemplo
+import data from './data/pokemon/pokemon.js';
 
-export const sortDataByNumber = () => {
-  return 'example';
-};
+const poke = data.pokemon;
+ */
+
+export const sortDataByNumber = (x) => x.sort((a, b) =>
+((b.num > a.num) ? 1 : -1))
 
 
-export const anotherExample = () => {
-  return 'OMG';
-};
+
+

@@ -12,7 +12,7 @@ function types (types) {
         }).join('')}
     </ul>
     `;
-};
+}
 
 function pokeTemplate (poke) {
     return `
@@ -23,8 +23,13 @@ function pokeTemplate (poke) {
         ${types(poke.type)}
     </div>
     `;
-};
+}
 
 document.getElementById("home-index").innerHTML =  `${pokemonData.map(pokeTemplate).join('')}`;
   
-console.log(DataFunctions.sortDataByNumber(),DataFunctions.anotherExample(), pokemonData);
+const btnOrderNumber = document.getElementById("btn-sort-number");
+
+btnOrderNumber.addEventListener("click", ()=>{
+    document.getElementById("home-index").innerHTML =  `${DataFunctions.sortDataByNumber(pokemonData).map(pokeTemplate).join('')}`;
+    }
+);
