@@ -1,8 +1,9 @@
 // estas funciones son de ejemplo
 
-export const example = () => {
+export const sortDataByNumber = () => {
   return 'example';
 };
+
 
 export const anotherExample = () => {
   return 'OMG';
