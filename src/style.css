@@ -1,33 +1,38 @@
 html, body {
     height: 100%;
     width: 100%;
-    margin: auto;
+    margin: 0px;
+    padding: 0px;
     background: url("img/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     font: "Helvetica";
     
   }
   
   header {
-   
     background-color: #14133A;
     width: 100%;
+    height: 130px;
   }
   
   .img-header {
-    width: 30%;
-    height: 20%;
+    width: 130px;
+    height: 80px;
   }
   
   .nav-pc{
     display: flex;
     width: 100%;
+    height: 41px;
     justify-content: flex-end;
+    position: relative;
+    top: -50px;
   }
   
   form {
     display: flex;
     flex-direction: row;
-    height: 30px;
   }
   
   .btn-nav {
@@ -50,35 +55,51 @@ html, body {
     width: 162px;
   }
 
-  main {
-    
-  }
+  
 
   .pokemon-card {
-    max-width: 310.94px;
-    height: 369.91px;
-    padding: 20px;
+    max-width: 180px;
+    height: 280px;
+    padding: 10px;
     margin: 30px auto;
     background: rgba(255, 255, 255, 0.75);
     border-radius: 5px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, .1);
     overflow: hidden;
+    text-align: center;
+    justify-content: center;
   }
 
   .poke-type-list {
     float:left;
-    margin:0px 1px;
-    border:1px solid black;
-    background:#eeeeee;
+    margin:3px;
+    padding: 5px;
+    background:#928f8f;
+    justify-content: center;
+    border-radius: 5px;
   }
 
-  .index {
-    
-  }
   
   /* MEDIA QUERY*/ 
+
+  @media screen and (max-width: 1400px)  {
+    .nav-phone {
+      visibility: hidden;
+    }
+
+    .nav-pc {
+      visibility: visible;
+    }
+  }
+
   @media screen and (max-width: 320px)  {
-          .nav-pc {
-            display: none;
-          }
-        }
+    .nav-phone {
+      visibility: visible;
+    }
+
+    .nav-pc {
+      visibility: hidden;
+    }
+  }
+
+  

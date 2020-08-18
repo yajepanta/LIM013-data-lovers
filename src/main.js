@@ -33,3 +33,10 @@ btnOrderNumber.addEventListener("click", ()=>{
     document.getElementById("home-index").innerHTML =  `${DataFunctions.sortDataByNumber(pokemonData).map(pokeTemplate).join('')}`;
     }
 );
+
+const btnHome = document.getElementById("btn-home");
+
+btnHome.addEventListener("click", ()=>{
+    document.getElementById("home-index").innerHTML =  `${DataFunctions.showDataHome(pokemonData).map(pokeTemplate).join('')}`;
+    }
+);
