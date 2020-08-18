@@ -3,3 +3,8 @@
 .nyc_output/
 coverage/
 node_modules/
+.babelrc
+.editorconfig
+.eslintrc
+package-lock.json
+package-lock.json
