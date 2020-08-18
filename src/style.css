@@ -15,24 +15,52 @@ html, body {
     width: 100%;
     height: 130px;
   }
-  
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  form {
+    height: 20px;
+  }
+
+  input {
+    padding: 6px;
+    padding-bottom: 1px;
+    margin-top: 8px;
+    border: none;
+    font-size: 17px;
+  }
+
+  .btn-search {
+    padding: 6px;
+    margin-top: 8px;
+    border: none;
+    background-color: #14133A;
+    border: none;
+    }
+
   .img-header {
     width: 130px;
     height: 80px;
   }
   
   .nav-pc{
-    display: flex;
-    width: 100%;
     height: 41px;
-    justify-content: flex-end;
-    position: relative;
-    top: -50px;
+    justify-content: center;
   }
   
-  form {
+  .nav-phone{
     display: flex;
-    flex-direction: row;
+    height: 41px;
+    justify-content: center;
+  }
+
+  .img-icon {
+    width: 30px;
+    height:30px;
   }
   
   .btn-nav {
@@ -46,8 +74,11 @@ html, body {
   
   .sortBy {
     display: flex;
-    width: 100%;
+    width: 150px;
     justify-content: flex-end;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .1);
   }
   
   .img-pokemon {
@@ -55,19 +86,23 @@ html, body {
     width: 162px;
   }
 
-  
+  .index {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 240px 240px 240px 240px;
+    justify-content: center;
+  }
 
   .pokemon-card {
     max-width: 180px;
     height: 280px;
-    padding: 10px;
-    margin: 30px auto;
+    padding: 20px;
+    margin: 20px;
     background: rgba(255, 255, 255, 0.75);
     border-radius: 5px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, .1);
     overflow: hidden;
     text-align: center;
-    justify-content: center;
   }
 
   .poke-type-list {
@@ -84,21 +119,21 @@ html, body {
 
   @media screen and (max-width: 1400px)  {
     .nav-phone {
-      visibility: hidden;
+      display: none;
     }
 
     .nav-pc {
-      visibility: visible;
+      display: flex;
     }
   }
 
   @media screen and (max-width: 320px)  {
     .nav-phone {
-      visibility: visible;
+      display: flex;
     }
 
     .nav-pc {
-      visibility: hidden;
+      display: none;
     }
   }
 
