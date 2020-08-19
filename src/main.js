@@ -36,13 +36,17 @@ const pokemonData = data.pokemon;
     const btnSortByNumber = document.getElementById("btn-sort-number");
 
     btnSortByNumber.addEventListener("click", sortByNumber);
-    function sortByNumber(){
-        if (home.innerHTML === ""){
+
+    function sortByNumber() {
+
+        if (home.innerHTML === "") {
             return;
         }
-        else { let sortedByNumber = pokemonData.map(pokemonTemplate);
-        sortedByNumber = DataFunctions.sortDataByNumber(sortedByNumber).join('');
-        home.innerHTML = `${sortedByNumber}`; }
+        else { 
+            let sortedByNumber = pokemonData.map(pokemonTemplate);
+            sortedByNumber = DataFunctions.sortDataByNumber(sortedByNumber).join('');
+            home.innerHTML = `${sortedByNumber}`; 
+        }
         /* let sortedByNumber = pokemonData.map(pokemonTemplate);
         sortedByNumber = DataFunctions.sortDataByNumber(sortedByNumber).join('');
         
@@ -56,14 +60,17 @@ const pokemonData = data.pokemon;
     
  //BARRA DE NAVEGACIÓN 
 
-    // botón index, que va al inicio
-    const btnHome = document.getElementById("btn-home");
-
+ //función que muestra los pokemones
     function showData() {
         home.innerHTML =  `${pokemonData.map(pokemonTemplate).join('')}`;
     }
-
+    // botón index, que va al inicio - mobile
+    const btnHome = document.getElementById("btn-home-phone");
     btnHome.addEventListener("click", showData);
+
+    //botón inicio - pc
+    const btnInicio = document.getElementById("btn-home-pc");
+    btnInicio.addEventListener("click", showData);
 
 // Función para limpiar toda la data:
 function clear() {

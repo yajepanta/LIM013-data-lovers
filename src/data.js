@@ -5,7 +5,7 @@ const poke = data.pokemon;
  */
 
 export const sortDataByNumber = (x) => x.sort((a, b) =>
-((b.num > a.num) ? 1 : -1))
+((b > a) ? 1 : -1))
 
 
 
