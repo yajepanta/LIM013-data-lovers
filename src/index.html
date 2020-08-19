@@ -37,12 +37,17 @@
       
       <section class="sortBy">
         <span>ORDENAR</span>
-        <button class="btn-sort" id="btn-sort-letter">
-          A.Z 
-        </button>
-        <button class="btn-sort" id="btn-sort-number">
-          #
-        </button>
+            <select class="btn-sort" id="btn-sort-letter">
+            <option> Por letra </option>
+            <option value="ascendingLetter"> A-Z </option>
+            <option value="descendingLetter"> Z-A </option>
+          </select>
+
+        <select class="btn-sort" id="btn-sort-number">
+          <option> Por número </option>
+          <option value="ascendingOrder"> 0-9 </option>
+          <option value="descendingOrder"> 9-0 </option>
+        </select>
       </section>
       
       <section class="index" id="home-index">
