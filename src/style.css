@@ -70,17 +70,33 @@ html, body {
     background-color: #14133A;
     color: aliceblue;
     border: none;
+    width: 200px;
+  }
+
+  .btn-sort {
+    height: 45px;
+    width: 45px;
+    margin: 2px;
+    background-color: #606063;
+    color: aliceblue;
+    border: none;
+    border-radius: 10px;
   }
   
   .sortBy {
     display: flex;
-    width: 150px;
-    justify-content: flex-end;
+    width: 180px;
+    height: 50px;
+    justify-content: center;
     background: rgba(255, 255, 255, 0.75);
     border-radius: 5px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, .1);
   }
   
+  main {
+    display: flexbox;
+  }
+
   .img-pokemon {
     height: 162px;
     width: 162px;
@@ -117,7 +133,7 @@ html, body {
   
   /* MEDIA QUERY*/ 
 
-  @media screen and (max-width: 1400px)  {
+  @media screen and (max-width: 1500px)  {
     .nav-phone {
       display: none;
     }

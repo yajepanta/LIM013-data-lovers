@@ -1,35 +1,37 @@
-import { example, anotherExample } from '../src/data.js';
+import { sortDataByNumber } from '../src/data.js';
 
-const input = 
+export const inputTest = 
 [
-  {id: '1', num: '001', name: 'Bulbasaur', type: [ 'Grass', 'Poison' ]},
-  {id: '2', num: '002', name: 'Ivysaur', type: [ 'Grass', 'Poison' ]},
-  {id: '3', num: '003', name: 'Venusaur', type: [ 'Grass', 'Poison' ]},
-  {id: '4', num: '004', name: 'Charmander', type: ['Fire' ]},
-  {id: '5', num: '005', name: 'Charmeleon', type: [ 'Fire' ]},
+  {num: '003', name: 'Venusaur', type: [ 'Grass', 'Poison' ]},
+  {num: '001', name: 'Bulbasaur', type: [ 'Grass', 'Poison' ]},
+  {num: '004', name: 'Charmander', type: ['Fire' ]},
+  {num: '002', name: 'Ivysaur', type: [ 'Grass', 'Poison' ]},
 ];
 
-const output1 = 
+export const outputByNumDesc = 
 [
-  {id: '1', num: '001', name: 'Bulbasaur', type: [ 'Grass', 'Poison' ]},
-  {id: '2', num: '002', name: 'Ivysaur', type: [ 'Grass', 'Poison' ]},
-  {id: '3', num: '003', name: 'Venusaur', type: [ 'Grass', 'Poison' ]},
-  {id: '4', num: '004', name: 'Charmander', type: ['Fire' ]},
-  {id: '5', num: '005', name: 'Charmeleon', type: [ 'Fire' ]},
+  {num: '004', name: 'Charmander', type: ['Fire' ]},
+  {num: '003', name: 'Venusaur', type: [ 'Grass', 'Poison' ]},
+  {num: '002', name: 'Ivysaur', type: [ 'Grass', 'Poison' ]},
+  {num: '001', name: 'Bulbasaur', type: [ 'Grass', 'Poison' ]},
 ];
 
-describe('sortDataByNumber', () => {
+describe('Ordenar por numero de forma descendente', () => {
+  it('debería ser un objeto', () => {
+    expect(typeof inputTest).toBe('object');
+  });
+
   it('debería ser una función', () => {
     expect(typeof sortDataByNumber).toBe('function');
   });
 
-  it('debería retornar un array ordenado por número ascendentemente', () => {
-    expect(sortDataByNumber(input, 'number', 'asc')).toEqual('output1');
+  it('debería retornar un arreglo de los pokemons ordenado por número descendentemente', () => {
+    expect(sortDataByNumber(inputTest, )).toEqual(outputByNumDesc);
   });
 
 });
 
-
+/*
 describe('anotherExample', () => {
   it('is a function', () => {
     expect(typeof anotherExample).toBe('function');
@@ -39,3 +41,4 @@ describe('anotherExample', () => {
     expect(anotherExample()).toBe('OMG');
   });
 });
+*/
