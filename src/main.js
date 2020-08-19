@@ -38,15 +38,19 @@ const pokemonData = data.pokemon;
     btnSortByNumber.addEventListener("click", sortByNumber);
 
     function sortByNumber() {
-
-        if (home.innerHTML === "") {
-            return;
+        /* let sortedByNumber1 = pokemonData */
+        let sortedByNumber = pokemonData.map(pokemonTemplate);
+        
+     /*    if (DataFunctions.ascendingOrDescending(sortedByNumber[2]) === "true") {
+            home.innerHTML = `${sortedByNumber.join('')}`; 
         }
-        else { 
-            let sortedByNumber = pokemonData.map(pokemonTemplate);
+
+        else { */
             sortedByNumber = DataFunctions.sortDataByNumber(sortedByNumber).join('');
             home.innerHTML = `${sortedByNumber}`; 
+     
         }
+
         /* let sortedByNumber = pokemonData.map(pokemonTemplate);
         sortedByNumber = DataFunctions.sortDataByNumber(sortedByNumber).join('');
         
@@ -55,7 +59,7 @@ const pokemonData = data.pokemon;
             }
             else {
                 home.innerHTML = `${sortedByNumber.reverse()}`; */
-            }
+            
     
     
  //BARRA DE NAVEGACIÓN 
