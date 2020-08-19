@@ -16,7 +16,6 @@ const pokemonData = data.pokemon;
 
 // arrays con los datos de los pokemon en orden 0-9
     function pokemonTemplate (pokemon) {
-        console.log(pokemon);
         return `
         <div class="pokemon-card">
             <p>${pokemon.num}</p>
@@ -34,24 +33,25 @@ const pokemonData = data.pokemon;
 // SECCIÓN: SORT BY - botón sortByNumber - botón sortByLetter
 
     // botón sortByNumber
-    const btnSortByNumber = document.getElementById("btn-sort-number");
-    btnSortByNumber.addEventListener("click", sortByNumber);
+    let btnSortByNumber = document.getElementById("btn-sort-number");
+ /*    btnSortByNumber.options[btnSortByNumber.selectedIndex].value; */
+    btnSortByNumber.addEventListener("change", sortByNumber);
 
     function sortByNumber() {
-        let sortedByNumber = pokemonData.map(pokemonTemplate);
-        sortedByNumber = DataFunctions.sortDataByNumber(sortedByNumber).join('');
-        home.innerHTML = `${sortedByNumber}`;        
+
+        if (btnSortByNumber.value == "ascendingOrder") {
+            let sortedByNumber = pokemonData.map(pokemonTemplate);
+            sortedByNumber = DataFunctions.sortDataByAscNumber(sortedByNumber).join('');
+            home.innerHTML = `${sortedByNumber}`;
+        } 
+        else {
+            let sortedByNumber = pokemonData.map(pokemonTemplate);
+            sortedByNumber = DataFunctions.sortDataByDescNumber(sortedByNumber).join('');
+            home.innerHTML = `${sortedByNumber}`;
+        }       
     }
 
-        /* let sortedByNumber = pokemonData.map(pokemonTemplate);
-        sortedByNumber = DataFunctions.sortDataByNumber(sortedByNumber).join('');
-        
-            if (DataFunctions.sortDataByNumber(sortedByNumber).value == 1) {
-                home.innerHTML = `${sortedByNumber}`;
-            }
-            else {
-                home.innerHTML = `${sortedByNumber.reverse()}`; */
- 
+
  //BARRA DE NAVEGACIÓN 
 
  //función que muestra los pokemones
@@ -66,8 +66,3 @@ const pokemonData = data.pokemon;
     //botón inicio - pc
     const btnInicio = document.getElementById("btn-home-pc");
     btnInicio.addEventListener("click", showData);
-
-/* // Función para limpiar toda la data:
-function clear() {
-    home.innerHTML = " ";
-                } */
