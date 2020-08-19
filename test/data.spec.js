@@ -1,4 +1,5 @@
 import { sortDataByNumber } from '../src/data.js';
+/* import * as main from "../src/main.js"; */
 
 export const inputTest = 
 [
@@ -25,9 +26,13 @@ describe('Ordenar por numero de forma descendente', () => {
     expect(typeof sortDataByNumber).toBe('function');
   });
 
-  it('debería retornar un arreglo de los pokemons ordenado por número descendentemente', () => {
-    expect(sortDataByNumber(inputTest, )).toEqual(outputByNumDesc);
+  it('debería retornar un string de los pokemons ordenado por número descendentemente', () => {
+    expect(sortDataByNumber(inputTest)).toEqual(outputByNumDesc);
   });
+
+/*   it.skip('debería retornar un "string"', () => {
+    expect(main.pokemonTemplate(inputTest)).toBe('string');
+  }) */
 
 });
 
