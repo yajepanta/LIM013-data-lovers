@@ -104,8 +104,7 @@ html, body {
 
   .index {
     max-width: 100%;
-    display: grid;
-    grid-template-columns: 240px 240px 240px 240px;
+
     justify-content: center;
   }
 
@@ -133,13 +132,17 @@ html, body {
   
   /* MEDIA QUERY*/ 
 
-  @media screen and (max-width: 1500px)  {
+  @media screen and (min-width: 321px)  {
     .nav-phone {
       display: none;
     }
 
     .nav-pc {
       display: flex;
+    }
+    .index{
+      display: grid;
+      grid-template-columns: 240px 240px 240px 240px;
     }
   }
 
@@ -151,6 +154,7 @@ html, body {
     .nav-pc {
       display: none;
     }
+
   }
 
   
