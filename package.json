@@ -19,8 +19,23 @@
     "eslint": "^5.9.0",
     "gh-pages": "^2.1.1",
     "htmlhint": "^0.11.0",
-    "jest": "^24.9.0",
     "opener": "^1.5.1",
     "serve": "^11.0.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LauraJimenezB/LIM013-data-lovers.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/LauraJimenezB/LIM013-data-lovers/issues"
+  },
+  "homepage": "https://github.com/LauraJimenezB/LIM013-data-lovers#readme",
+  "description": ""
 }
