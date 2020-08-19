@@ -80,5 +80,3 @@ const pokemonData = data.pokemon;
 function clear() {
     home.innerHTML = " ";
                 }
-
-
