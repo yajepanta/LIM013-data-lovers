@@ -7,27 +7,27 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="root"></div>
-
     <header>
-      <div class="header">
         <img class="img-header" src="img/logo.png"/> 
+        
+ <!-- BARRA DE NAVEGACIÓN MÓVIL -->
+      <nav class="nav-phone">    
+        <button class="btn-nav-phone" id="type-phone"><img src="img/filter.png"/></button>
         <form>
           <label for="input-search"></label>
           <input class="input-search" id="search" placeholder="Buscar por nombre o número">
-          <button class="btn-search" id="btn-search"><img src="img/search.svg" class="img-icon"/></button>  
+          <button class="btn-nav-phone" id="btn-search"><img src="img/search.png"/></button>  
         </form>
-      </div>
-      <nav class="nav-phone">
-        <button class="btn-nav" id="btn-home-phone"><img src="img/home.svg" class="img-icon"/></button>
-        <button class="btn-nav" id="type-phone"><img src="img/filter.svg" class="img-icon"/></button>
+        <button class="btn-nav-phone" id="btn-home-phone"><img src="img/home.png"/></button>
         <!-- <button class="btn-nav" id="type"><img src="battle.svg" class="img-icon"/></button>
         <button class="btn-nav" id="type"><img src="pokedex.svg" class="img-icon"/></button> -->
       </nav>
 
+<!-- BARRA DE NAVEGACIÓN PARA ESCRITORIO -->
+
       <nav class="nav-pc"> 
-        <button class="btn-nav" id="btn-home-pc"> INICIO </button>
-        <button class="btn-nav" id="type-pc"> TIPOS </button>
+        <button class="btn-nav-pc" id="btn-home-pc"> <!-- <img src="img/home.png"/> --> INICIO </button>
+        <button class="btn-nav-pc" id="type-pc"> TIPOS </button>
         <!-- <button class="btn-nav" id="type"> BATALLA </button>
         <button class="btn-nav" id="type"> PÓKEDEX </button> -->
       </nav>
@@ -36,12 +36,12 @@
     <main>
       
       <section class="sortBy">
-        <span>ORDENAR</span>
-            <select class="btn-sort" id="btn-sort-letter">
-            <option> Por letra </option>
-            <option value="ascendingLetter"> A-Z </option>
-            <option value="descendingLetter"> Z-A </option>
-          </select>
+        <span> ORDENAR</span>
+        <select class="btn-sort" id="btn-sort-letter">
+          <option> Por letra </option>
+          <option value="ascendingLetter"> A-Z </option>
+          <option value="descendingLetter"> Z-A </option>
+        </select>
 
         <select class="btn-sort" id="btn-sort-number">
           <option> Por número </option>
