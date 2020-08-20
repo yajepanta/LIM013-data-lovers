@@ -40,8 +40,10 @@ const pokemonData = data.pokemon;
     function sortByNumber() {
 
         if (btnSortByNumber.value == "ascendingOrder") {
+            //Mantener como array
             let sortedByNumber = pokemonData;
             sortedByNumber = DataFunctions.sortDataByAscNumber(sortedByNumber);
+            //Convertir a string "pokemonTemplate"
             home.innerHTML = `${sortedByNumber.map(pokemonTemplate).join('')}`;
         } 
         else {
