@@ -48,8 +48,8 @@ const pokemonData = data.pokemon;
         } 
         else {
             let sortedByNumber = pokemonData;
-            sortedByNumber = DataFunctions.sortDataByDescNumber(sortedByNumber);
-            home.innerHTML = `${sortedByNumber.map(pokemonTemplate).join('')}`;
+            sortedByNumber = DataFunctions.sortDataByAscNumber(sortedByNumber);
+            home.innerHTML = `${sortedByNumber.map(pokemonTemplate).reverse().join('')}`;
         }       
     }
 
