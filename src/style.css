@@ -143,7 +143,7 @@ main {
   /* height: 185px; */
   display: flex;
   justify-content: center;
-  width: 185px;
+  width: 155px;
 }
 
 /* elimina el padding que estaba al costado de cada <ul> */
