@@ -1,168 +1,198 @@
 html, body {
-    height: 100%;
-    width: 100vw;
     margin: 0px;
-    padding: 0px;
     background: url("img/background.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: cover;
     font: "Helvetica";
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+  }
+  
+  /* etiqueta header: padre
+  hijos: img-logo y nav pc - nav phone
+  flex-direction: column: en columna el logo y la barra de navegación */
+
+header {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    background-color: #14133A;
+    align-items: center; 
+    width: 100%;
+  }
+
+
+.img-header {
+    width: 200px;
+    height: 100px;
+    }
+
+  /* volvemos a agregar display flex, porque NAV-PC es Padre de  btn-home-pc type-pc */
+
+.nav-pc{
+    display: flex;
+    width: 100%;
+    height: 45px;
+    justify-content: center; 
+    /* width: 100%; */
     
   }
   
-  header {
-    background-color: #14133A;
-    /* width: 100%; */
-    height: 130px;
-  }
-
-  .header {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-
-  }
-
-  form {
+.btn-nav-pc img {
     height: 20px;
+    width: 20px;
+    background-color: #ffffff;
+  }
+  /* volvemos a agregar display flex, porque 
+  nav-phone es padre de: btn-nav-phone   input-search  btn-search  type-phone 
+   */
+
+.nav-phone{
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    width: 100%;
+    /* justify-content: center; */
   }
 
-  input {
-    padding: 6px;
-    padding-bottom: 1px;
-    margin-top: 8px;
+  /* form tiene como hijos input search y .btn-search, estos deben estar pegados */
+form {  
+    display: flex;
+    flex-direction: row;
+  }
+
+input {
+    height: 41px;
     border: none;
     font-size: 17px;
+    border-radius: 3px; 
   }
 
-  .btn-search {
-    padding: 6px;
-    margin-top: 8px;
+.btn-search {
     border: none;
-    background-color: #14133A;
-    border: none;
+    background-color: #ffffff;
     }
 
-  .img-header {
-    width: 130px;
-    height: 80px;
-  }
-  
-  .nav-pc{
-    height: 41px;
-    justify-content: center;
-  }
-  
-  .nav-phone{
-    display: flex;
-    height: 41px;
-    justify-content: center;
-  }
+  /* botones filter y home hijos de nav-phone */  
 
-  .img-icon {
-    width: 30px;
-    height:30px;
-  }
-  
-  .btn-nav {
-    height: 41px;
-    padding: 5px;
-    margin: 2px;
-    background-color: #14133A;
-    color: aliceblue;
+.btn-nav-phone {
+    background-color: #ffffff;
     border: none;
-    width: 200px;
-  }
-
-  .btn-sort {
-    height: 45px;
-    width: 45px;
+    border-radius: 3px;
     margin: 2px;
-    background-color: #606063;
-    color: aliceblue;
-    border: none;
-    border-radius: 10px;
   }
-  
-  .sortBy {
+
+.btn-nav-phone img {
+    height: 41px;
+    width: 41px;
+  }
+
+  /* contiene a <section class="sortBy"> <section class="index" id="home-index"> */
+main {
     display: flex;
-    width: 180px;
-    height: 50px;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.75);
-    border-radius: 5px;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, .1);
+    flex-direction: column;
+    margin-top: 150px;
+    width: 100vw;
+    align-items: center; 
   }
   
-  main {
-    display: flexbox;
-  }
-
-  .img-pokemon {
-    height: 162px;
-    width: 162px;
-  }
-
-  .index {
-    max-width: 100%;
-
+.sortBy {
+    display: flex;
     justify-content: center;
-  }
-
-  .pokemon-card {
-    max-width: 180px;
-    height: 280px;
-    padding: 20px;
-    margin: 20px;
+    align-items: center; 
+    margin: 10px;
+    width: 250px;
+    height: 48px;
     background: rgba(255, 255, 255, 0.75);
-    border-radius: 5px;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, .1);
-    overflow: hidden;
-    text-align: center;
+    border-radius: 3px;
+  }
+  
+.btn-sort {
+    height: 33px;
+    width: 80px;
+    margin: 2px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 3px;
   }
 
-  .poke-type-list {
-    float:left;
+.index {
+  width: 100%;
+  justify-content: center;
+  }
+
+.pokemon-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  max-width: 310px;
+  height: 280px;
+  padding: 20px;
+  margin: 20px;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: center;
+  }
+
+    /* accede a la etiqueta IMG dentro del div pokemon card (creados en main.js) */
+.pokemon-card img {
+  /* height: 185px; */
+  display: flex;
+  justify-content: center;
+  width: 185px;
+}
+
+/* elimina el padding que estaba al costado de cada <ul> */
+.poke-types {
+  padding: 0px;
+}
+.poke-type-list {
     margin:3px;
     padding: 5px;
-    background:#928f8f;
-    justify-content: center;
+    color: #000;
+    background: #969696;
     border-radius: 5px;
   }
 
   
-  /* MEDIA QUERY*/ 
+  /* MEDIA QUERYS*/ 
 
-  @media screen and (min-width: 321px)  {
-    .nav-phone {
+  
+@media screen and (min-width: 401px)  {
+    
+  .nav-phone {
       display: none;
     }
-
-    .nav-pc {
+  
+  .nav-pc {
       display: flex;
-    }
-    .index{
+      width: 100vw;
+  }
+  
+  .index{
       display: grid;
-      grid-template-columns: 240px 240px 240px 240px;
+      grid-template-columns: 250px 250px 250px 250px;
+    }
+  
+  .btn-nav-pc{
+      background-color: #14133A;
+      color: aliceblue;
+      border: none;
+      align-content: center;
     }
   }
   /* para tablet y desktop max-width */
 
-  @media screen and (max-width: 320px)  {
-    .nav-phone {
+@media screen and (max-width: 400px)  {
+  .nav-phone {
       display: flex;
     }
 
-    .nav-pc {
+  .nav-pc {
       display: none;
     }
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-  
-    }
   }
-
-  
