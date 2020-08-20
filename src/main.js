@@ -40,23 +40,44 @@ const pokemonData = data.pokemon;
     function sortByNumber() {
 
         if (btnSortByNumber.value == "ascendingOrder") {
-            let sortedByNumber = pokemonData.map(pokemonTemplate);
-            sortedByNumber = DataFunctions.sortDataByAscNumber(sortedByNumber).join('');
-            home.innerHTML = `${sortedByNumber}`;
+            let sortedByNumber = pokemonData;
+            sortedByNumber = DataFunctions.sortDataByAscNumber(sortedByNumber);
+            home.innerHTML = `${sortedByNumber.map(pokemonTemplate).join('')}`;
         } 
         else {
-            let sortedByNumber = pokemonData.map(pokemonTemplate);
-            sortedByNumber = DataFunctions.sortDataByDescNumber(sortedByNumber).join('');
-            home.innerHTML = `${sortedByNumber}`;
+            let sortedByNumber = pokemonData;
+            sortedByNumber = DataFunctions.sortDataByDescNumber(sortedByNumber);
+            home.innerHTML = `${sortedByNumber.map(pokemonTemplate).join('')}`;
         }       
     }
 
+    // botón sortByLetter
+    let btnSortByLetter = document.getElementById("btn-sort-letter");
+ /*    btnSortByLetter.options[btnSortByLetter.selectedIndex].value; */
+   btnSortByLetter.addEventListener("change", sortByLetter);
+
+    function sortByLetter() {
+
+        if (btnSortByLetter.value == "ascendingLetter") {
+            let sortedByLetter = pokemonData;
+            sortedByLetter = DataFunctions.sortDataByLetA(sortedByLetter);
+            home.innerHTML = `${sortedByLetter.map(pokemonTemplate).join('')}`;
+        } 
+        else {
+            let sortedByLetter = pokemonData;
+            sortedByLetter = DataFunctions.sortDataByLetZ(sortedByLetter);
+            home.innerHTML = `${sortedByLetter.map(pokemonTemplate).join('')}`;
+        }       
+    }
+  
 
  //BARRA DE NAVEGACIÓN 
 
  //función que muestra los pokemones
     function showData() {
-        home.innerHTML =  `${pokemonData.map(pokemonTemplate).join('')}`;
+        let showData = pokemonData;
+        showData = DataFunctions.sortDataByAscNumber(showData);
+        home.innerHTML =  `${showData.map(pokemonTemplate).join('')}`;
     }
     
     // botón index, que va al inicio - mobile
