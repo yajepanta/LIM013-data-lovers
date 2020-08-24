@@ -9,6 +9,7 @@ html, body {
   flex-direction: column;
   width: 100vw;
   }
+
   
 /* header: padre
   hijos: img  - nav pc - nav phone
@@ -25,7 +26,8 @@ header {
 
 header img {
   width: 200px;
-  height: 100px;
+  height: 70px;
+  margin: 15px;
   }
 
   /* volvemos a agregar display flex, 
@@ -42,7 +44,6 @@ nav{
 .btn-nav-pc img {
   height: 20px;
   width: 20px;
-  background-color: #ffffff;
   }
 
   /* form tiene como hijos input search y .btn-search, estos deben estar pegados */
@@ -54,27 +55,35 @@ form {
   }
 
 input {
-  height: 41px;
+  height: 38px;
+  width: 200px;
   border: none;
-  font-size: 17px;
+  font-size: 14px;
   border-radius: 3px; 
   }
-
+/*
 .btn-search {
   border: none;
   background-color: #ffffff;
   }
-
+*/
 .btn-nav-phone {
   background-color: #ffffff;
   border: none;
   border-radius: 3px;
   margin: 2px;
+  height: 40px;
+  width: 40px;
+  justify-content: center;
+  position: relative;
+  top: -2px;
   }
 
 .btn-nav-phone img {
-  height: 41px;
-  width: 41px;
+  height: 35px;
+  width: 35px;
+  position: relative;
+  top: -15px;
   }
 
   /* contiene a <section class="sortBy"> <section class="index" id="home-index"> */
@@ -159,20 +168,54 @@ main {
 
   .btn-nav-pc {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     width: 100px;
+    height: 30px;
     background-color: #14133A;
     color: aliceblue;
     border: none;
+    margin-right: 10px;
+    font-size: 17px;
+    font-weight: bold;
     } 
 
     nav {
       justify-content: flex-end;
     }
+
+    form {  
+      display: flex;
+      flex-direction: row;
+      order: 2;
+      }
+    
+    input {
+      height: 30px;
+      width: 200px;
+      border: none;
+      font-size: 14px;
+      border-radius: 3px; 
+      position: relative;
+      top: -2px;
+      }
+
   #btn-search {
     display: flex;
     background-color: #ffffff;
+    width: 31px;
+    height: 32px;
+    padding: 0px;
+    margin:0;
+    margin-left: 2px;
+    margin-right: 25px;
+    justify-content: center;
+
+  }
+
+  .btn-search-img {
+    position: relative;
+    top: -15px;
   }
 
   .index{

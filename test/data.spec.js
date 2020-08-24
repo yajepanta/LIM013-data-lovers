@@ -41,6 +41,51 @@ export const outputByLetterZ =
   {num: '001', name: 'Bulbasaur', type: [ 'Grass', 'Poison' ]},
 ];
 
+export const inputTest2 = 
+[
+  {num: "051", name: "dugtrio", type: [   "ground" ]},
+  {num: '004', name: 'Charmander', type: ['Fire' ]},
+  {num: "074", name: "geodude", type: [   "rock",  "ground" ]},
+  {num: "034", name: "nidoking", type: [  "poison",  "ground" ]},
+];
+
+export const outputFilter = 
+[
+  {num: "051", name: "dugtrio", type: [   "ground" ]},
+  {num: "074", name: "geodude", type: [   "rock",  "ground" ]},
+  {num: "034", name: "nidoking", type: [  "poison",  "ground" ]},
+];
+
+export const outputFilterNumAsc = 
+[
+  {num: "034", name: "nidoking", type: [  "poison",  "ground" ]},
+  {num: "051", name: "dugtrio", type: [   "ground" ]},
+  {num: "074", name: "geodude", type: [   "rock",  "ground" ]},
+];
+
+export const outputFilterNumDesc = 
+[
+  {num: "074", name: "geodude", type: [   "rock",  "ground" ]},
+  {num: "051", name: "dugtrio", type: [   "ground" ]},
+  {num: "034", name: "nidoking", type: [  "poison",  "ground" ]},
+];
+
+export const outputFilterAZ = 
+[
+  {num: "051", name: "dugtrio", type: [   "ground" ]},
+  {num: "074", name: "geodude", type: [   "rock",  "ground" ]},
+  {num: "034", name: "nidoking", type: [  "poison",  "ground" ]},
+];
+
+export const outputFilterZA = 
+[
+  {num: "034", name: "nidoking", type: [  "poison",  "ground" ]},
+  {num: "074", name: "geodude", type: [   "rock",  "ground" ]},
+  {num: "051", name: "dugtrio", type: [   "ground" ]},
+];
+
+
+
 describe('Ordenar por numero de forma ascendente', () => {
   it('debería ser un objeto', () => {
     expect(typeof inputTest).toBe('object');
@@ -95,6 +140,37 @@ describe('Ordenar por letra de forma descendente', () => {
       it('debería retornar un string de los pokemons ordenado por letra descendentemente', () => {
         expect(sortDataByLetZ(inputTest)).toEqual(outputByLetterZ);
       });
+});
+
+
+describe('Filtrar por tipo', () => {
+  it('debería ser un objeto', () => {
+    expect(typeof inputTest).toBe('object');
+  });
+
+  it('debería ser una función', () => {
+    expect(typeof filterData).toBe('function');
+  });
+
+  it('debería retornar un string de los pokemons filtrado por tipo', () => {
+    expect(filterData(inputTest2)).toEqual(outputFilter);
+  });
+
+  it('debería retornar un string de los pokemons filtrado por tipo y ordenado de menor a mayor', () => {
+    expect(sortDataByAscNumber(outputFilter)).toEqual(outputFilterNumAsc);
+  });
+
+  it('debería retornar un string de los pokemons filtrado por tipo y ordenado de mayor a menor', () => {
+    expect(sortDataByDescNumber(outputFilter)).toEqual(outputFilterNumDesc);
+  });
+
+  it('debería retornar un string de los pokemons filtrado por tipo y ordenado alfabéticamente', () => {
+    expect(sortDataByLetA(outputFilter)).toEqual(outputFilterAZ);
+  });
+
+  it('debería retornar un string de los pokemons filtrado por tipo y ordenado de la Z - A', () => {
+    expect(sortDataByLetZ(outputFilter)).toEqual(outputFilterZA);
+  });
 });
 
 
