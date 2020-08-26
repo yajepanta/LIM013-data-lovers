@@ -3,12 +3,22 @@ import data from './data/pokemon/pokemon.js';
 
 const pokemonDataConst = data.pokemon;
 let pokemonData = pokemonDataConst.slice();
+// llamamos a "home", que es el espacio donde se mostrará toda la data
+let home = document.getElementById("home-index");
 
 //CONTEO DE ARRAYS
-let countBox = document.querySelector(".sortBy span");
-function countData() {
-countBox.innerHTML = `${pokemonData.length} de 251 pokémons` ;
+const countBox = document.querySelector(".sortBy span");
+function countData(data) {
+countBox.innerHTML = `${data.length} de 251 pokémons` ;
 }
+
+//función que muestra los pokemones
+function showData(data) {
+    //Convertir a string "pokemonTemplate"
+    home.innerHTML = `${data.map(pokemonTemplate).join('')}`;
+    countData(data);
+}
+showData(pokemonDataConst);
 // añade el array con los tipos ordenados
 function types(type) {
     return `
@@ -32,18 +42,17 @@ function pokemonTemplate(pokemon) {
         `;
 }
 
-// llamamos a "home", que es el espacio donde se mostrará toda la data
-let home = document.getElementById("home-index");
-countData();
+
 //BARRA DE NAVEGACIÓN 
 
-// botón index, que va al inicio - mobile
+//botón index, que va al inicio - mobile
 const btnHome = document.getElementById("btn-home-phone");
-btnHome.addEventListener("onclick", showData(pokemonData));
+btnHome.addEventListener("click", function(){showData(pokemonDataConst)});
 
 //botón inicio - pc
 const btnInicio = document.getElementById("btn-home-pc");
-btnInicio.addEventListener("onclick", showData(pokemonData));
+btnInicio.addEventListener("click", function(){showData(pokemonDataConst)});
+
 
 //FUNCIÓN FILTRAR POR TIPO
 const btnFilterData = document.getElementById("btn-type-select");
@@ -57,14 +66,9 @@ function filterDataFx() {
     pokemonData = pokemonDataConst;
     pokemonData = DataFunctions.filterData(pokemonData, btnFilterData.value);
     showData(pokemonData);
-    countData();
 }
 
-//función que muestra los pokemones
-function showData(data) {
-    //Convertir a string "pokemonTemplate"
-    home.innerHTML = `${data.map(pokemonTemplate).join('')}`;
-}
+
 
 
 
