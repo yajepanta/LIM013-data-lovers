@@ -42,11 +42,15 @@ function pokemonTemplate(pokemon) {
         `;
 }
 
+// llamamos a "home", que es el espacio donde se mostrará toda la data
+let home = document.getElementById("home-index");
+countData();
 
 //BARRA DE NAVEGACIÓN 
 
 //botón index, que va al inicio - mobile
 const btnHome = document.getElementById("btn-home-phone");
+
 btnHome.addEventListener("click", function(){showData(pokemonDataConst)});
 
 //botón inicio - pc
@@ -58,8 +62,6 @@ btnInicio.addEventListener("click", function(){showData(pokemonDataConst)});
 const btnFilterData = document.getElementById("btn-type-select");
 btnFilterData.addEventListener("change", filterDataFx);
 
-const btnFilterDataPhone = document.getElementById("btn-type-phone");
-btnFilterDataPhone.addEventListener("change", filterDataFx);
 
 function filterDataFx() {
     /*  let newPokemonData = pokemonData; */
@@ -128,3 +130,15 @@ function sortByLetter() {
 document.getElementById("type-phone").addEventListener("click", function (){
     document.querySelector('.types-modal').style.display ='flex';
 });
+
+const btnFilterPhone = document.getElementById("btn-type-phone");
+btnFilterPhone.addEventListener("change", filterData);
+
+function filterData () {
+    document.querySelector('.types-modal').style.display ='none';
+    pokemonData = pokemonDataConst;
+    pokemonData = DataFunctions.filterData(pokemonData, btnFilterPhone.value);
+    /*console.log(pokemonData);*/
+    showData(pokemonData);
+    countData();
+}
