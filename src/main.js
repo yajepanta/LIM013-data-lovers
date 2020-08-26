@@ -6,6 +6,7 @@ let pokemonData = pokemonDataConst.slice();
 // llamamos a "home", que es el espacio donde se mostrará toda la data
 let home = document.getElementById("home-index");
 
+
 //CONTEO DE ARRAYS
 const countBox = document.querySelector(".sortBy span");
 function countData(data) {
@@ -42,15 +43,11 @@ function pokemonTemplate(pokemon) {
         `;
 }
 
-// llamamos a "home", que es el espacio donde se mostrará toda la data
-let home = document.getElementById("home-index");
-countData();
 
 //BARRA DE NAVEGACIÓN 
 
 //botón index, que va al inicio - mobile
 const btnHome = document.getElementById("btn-home-phone");
-
 btnHome.addEventListener("click", function(){showData(pokemonDataConst)});
 
 //botón inicio - pc
