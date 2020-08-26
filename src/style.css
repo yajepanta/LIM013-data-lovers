@@ -239,3 +239,32 @@ main {
     order: 0;
     }
   }
+  
+  .types-modal {
+    width: 350px;
+    height: 400px;
+    position: absolute;
+    top: +45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+
+  .modal-content {
+    width: 340px;
+    height: 200px;
+  }
+
+  .modal-dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    background-color: #14133A;
+    color: aliceblue;
+    border: none;
+    margin-right: 25px;
+    font-size: 17px;
+    font-weight: bold;
+  }

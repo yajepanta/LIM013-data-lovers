@@ -49,6 +49,9 @@ btnInicio.addEventListener("onclick", showData(pokemonData));
 const btnFilterData = document.getElementById("btn-type-select");
 btnFilterData.addEventListener("change", filterDataFx);
 
+const btnFilterDataPhone = document.getElementById("btn-type-phone");
+btnFilterDataPhone.addEventListener("change", filterDataFx);
+
 function filterDataFx() {
     /*  let newPokemonData = pokemonData; */
     pokemonData = pokemonDataConst;
@@ -117,5 +120,7 @@ function sortByLetter() {
 
 
 
-
-
+//Filter-menu
+document.getElementById("type-phone").addEventListener("click", function (){
+    document.querySelector('.types-modal').style.display ='flex';
+});
