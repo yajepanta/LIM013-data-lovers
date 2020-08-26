@@ -15,7 +15,7 @@
         <button class="btn-nav-phone" id="type-phone"><img src="img/filter.png"/></button>
         <form>
           <label for="input-search"></label>
-          <input class="input-search" id="search" placeholder="Buscar por nombre o número">
+          <input class="input-search" id="search" placeholder="Enter name of pokemon here">
           <button class="btn-nav-phone" id="btn-search"><img src="img/search.svg" class="btn-search-img" style="height:32px;"/></button>  
         </form>
         <button class="btn-nav-phone" id="btn-home-phone"><img src="img/home.png"/></button>
@@ -24,10 +24,10 @@
       
 
 <!-- BARRA DE NAVEGACIÓN PARA ESCRITORIO -->
-        <button class="btn-nav-pc" id="btn-home-pc"> <!-- <img src="img/home.png"/> --> INICIO </button>
-        <button class="btn-nav-pc" id="type-pc"> TIPOS </button>
+        <button class="btn-nav-pc" id="btn-home-pc"> <!-- <img src="img/home.png"/> --> HOME </button>
+        <!-- <button class="btn-nav-pc" id="type-pc"> TIPOS </button>-->
         
-        <select class="btn-type" id="btn-type-select">
+        <select class="btn-nav-pc" id="btn-type-select">
           <option> TYPES </option>
           <option value="normal"> Normal </option>
           <option value="fighting"> Fighting </option>
@@ -59,13 +59,13 @@
       <section class="sortBy">
         <span> ORDENAR</span>
         <select class="btn-sort" id="btn-sort-letter">
-          <option> Por letra </option>
+          <option> By name </option>
           <option value="ascendingLetter"> A-Z </option>
           <option value="descendingLetter"> Z-A </option>
         </select>
 
         <select class="btn-sort" id="btn-sort-number">
-          <option> Por número </option>
+          <option> By number </option>
           <option value="ascendingOrder"> 0-9 </option>
           <option value="descendingOrder"> 9-0 </option>
         </select>
