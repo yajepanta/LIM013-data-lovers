@@ -128,17 +128,16 @@ function sortByLetter() {
 
 //Filter-menu
 document.getElementById("type-phone").addEventListener("click", function (){
-    document.querySelector('.types-modal').style.display ='flex';
+    document.querySelector('.modal-content').style.display ='flex';
 });
 
 const btnFilterPhone = document.getElementById("btn-type-phone");
 btnFilterPhone.addEventListener("change", filterData);
 
 function filterData () {
-    document.querySelector('.types-modal').style.display ='none';
+    document.querySelector('.modal-content').style.display ='none';
     pokemonData = pokemonDataConst;
     pokemonData = DataFunctions.filterData(pokemonData, btnFilterPhone.value);
     /*console.log(pokemonData);*/
     showData(pokemonData);
-    countData();
 }

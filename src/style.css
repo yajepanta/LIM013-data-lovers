@@ -240,21 +240,17 @@ main {
     }
   }
   
-  .types-modal {
+  .modal-content {
     width: 350px;
     height: 400px;
     position: absolute;
     top: +45px;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     display: none;
   }
 
-  .modal-content {
-    width: 340px;
-    height: 200px;
-  }
 
   .modal-dropdown {
     display: flex;
