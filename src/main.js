@@ -4,6 +4,11 @@ import data from './data/pokemon/pokemon.js';
 const pokemonDataConst = data.pokemon;
 let pokemonData = pokemonDataConst.slice();
 
+//CONTEO DE ARRAYS
+let countBox = document.querySelector(".sortBy span");
+function countData() {
+countBox.innerHTML = `${pokemonData.length} de 251 pokémons` ;
+}
 // añade el array con los tipos ordenados
 function types(type) {
     return `
@@ -29,16 +34,27 @@ function pokemonTemplate(pokemon) {
 
 // llamamos a "home", que es el espacio donde se mostrará toda la data
 let home = document.getElementById("home-index");
+countData();
+//BARRA DE NAVEGACIÓN 
+
+// botón index, que va al inicio - mobile
+const btnHome = document.getElementById("btn-home-phone");
+btnHome.addEventListener("onclick", showData(pokemonData));
+
+//botón inicio - pc
+const btnInicio = document.getElementById("btn-home-pc");
+btnInicio.addEventListener("onclick", showData(pokemonData));
 
 //FUNCIÓN FILTRAR POR TIPO
 const btnFilterData = document.getElementById("btn-type-select");
 btnFilterData.addEventListener("change", filterDataFx);
 
 function filterDataFx() {
-   /*  let newPokemonData = pokemonData; */
-   
+    /*  let newPokemonData = pokemonData; */
+    pokemonData = pokemonDataConst;
     pokemonData = DataFunctions.filterData(pokemonData, btnFilterData.value);
     showData(pokemonData);
+    countData();
 }
 
 //función que muestra los pokemones
@@ -47,14 +63,17 @@ function showData(data) {
     home.innerHTML = `${data.map(pokemonTemplate).join('')}`;
 }
 
-// SECCIÓN: SORT BY - botón sortByNumber - botón sortByLetter
 
-// Botón sortByNumber
+
+
+                            // SECTION: SORT BY
+
+
+// sortByNumber
 let btnSortByNumber = document.getElementById("btn-sort-number");
 btnSortByNumber.addEventListener("change", sortByNumber);
 
 function sortByNumber() {
-
     /*     if (btnSortByNumber.value == "ascendingOrder") {
             //Mantener como array
             let sortedByNumber = pokemonData;
@@ -70,47 +89,32 @@ function sortByNumber() {
 
     if (btnSortByNumber.value == "ascendingOrder") {
         //Mantener como array
-        let newPokemonData = pokemonData;
-        newPokemonData = DataFunctions.sortDataByAscNumber(newPokemonData);
-        showData(newPokemonData);
-
+        DataFunctions.sortDataByAscNumber(pokemonData);
+        showData(pokemonData);
     }
     else {
-        let newPokemonData = pokemonData;
-        newPokemonData = DataFunctions.sortDataByDescNumber(newPokemonData);
-        showData(newPokemonData);
+        DataFunctions.sortDataByDescNumber(pokemonData);
+        showData(pokemonData);
 
     }
 }
-// botón sortByLetter
+// sortByLetter
 let btnSortByLetter = document.getElementById("btn-sort-letter");
 btnSortByLetter.addEventListener("change", sortByLetter);
 
 function sortByLetter() {
-    if (home !== ""){
-        console.log(home);
-    if (btnSortByLetter.value == "ascendingLetter") {
-        let newPokemonData = pokemonData;
-        newPokemonData = DataFunctions.sortDataByLetA(newPokemonData);
-        showData(newPokemonData);
-    }
-    else {
-        /* let newPokemonData = pokemonData; */
-         /* newPokemonData =  */DataFunctions.sortDataByLetZ(pokemonData);
-        showData(pokemonData);
-    }
-}
+        if (btnSortByLetter.value == "ascendingLetter") {
+            DataFunctions.sortDataByLetA(pokemonData);
+            showData(pokemonData);
+        }
+        else {
+            DataFunctions.sortDataByLetZ(pokemonData);
+            showData(pokemonData);
+        }
 }
 
-//BARRA DE NAVEGACIÓN 
 
-// botón index, que va al inicio - mobile
-const btnHome = document.getElementById("btn-home-phone");
-btnHome.addEventListener("click", showData);
 
-//botón inicio - pc
-const btnInicio = document.getElementById("btn-home-pc");
-btnInicio.addEventListener("click", showData);
 
 
 
