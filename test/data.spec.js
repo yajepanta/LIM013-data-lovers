@@ -1,4 +1,4 @@
-import { sortDataByDescNumber, sortDataByAscNumber, sortDataByLetA, sortDataByLetZ} from '../src/data.js';
+import { sortDataByDescNumber, sortDataByAscNumber, sortDataByLetA, sortDataByLetZ,filterData} from '../src/data.js';
 /* import * as main from "../src/main.js"; */
 
 export const inputTest = 
@@ -153,7 +153,7 @@ describe('Filtrar por tipo', () => {
   });
 
   it('debería retornar un string de los pokemons filtrado por tipo', () => {
-    expect(filterData(inputTest2)).toEqual(outputFilter);
+    expect(filterData(inputTest2, "ground")).toEqual(outputFilter);
   });
 
   it('debería retornar un string de los pokemons filtrado por tipo y ordenado de menor a mayor', () => {
