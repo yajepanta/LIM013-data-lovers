@@ -35,22 +35,21 @@ function pokemonTemplate(pokemon) {
 // llamamos a "home", que es el espacio donde se mostrará toda la data
 let home = document.getElementById("home-index");
 countData();
+
 //BARRA DE NAVEGACIÓN 
 
 // botón index, que va al inicio - mobile
 const btnHome = document.getElementById("btn-home-phone");
-btnHome.addEventListener("onclick", showData(pokemonData));
+btnHome.addEventListener("click", showData(pokemonData));
 
 //botón inicio - pc
 const btnInicio = document.getElementById("btn-home-pc");
-btnInicio.addEventListener("onclick", showData(pokemonData));
+btnInicio.addEventListener("click", showData(pokemonData));
 
 //FUNCIÓN FILTRAR POR TIPO
 const btnFilterData = document.getElementById("btn-type-select");
 btnFilterData.addEventListener("change", filterDataFx);
 
-const btnFilterDataPhone = document.getElementById("btn-type-phone");
-btnFilterDataPhone.addEventListener("change", filterDataFx);
 
 function filterDataFx() {
     /*  let newPokemonData = pokemonData; */
@@ -124,3 +123,15 @@ function sortByLetter() {
 document.getElementById("type-phone").addEventListener("click", function (){
     document.querySelector('.types-modal').style.display ='flex';
 });
+
+const btnFilterPhone = document.getElementById("btn-type-phone");
+btnFilterPhone.addEventListener("change", filterData);
+
+function filterData () {
+    document.querySelector('.types-modal').style.display ='none';
+    pokemonData = pokemonDataConst;
+    pokemonData = DataFunctions.filterData(pokemonData, btnFilterPhone.value);
+    /*console.log(pokemonData);*/
+    showData(pokemonData);
+    countData();
+}
