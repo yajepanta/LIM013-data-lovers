@@ -10,7 +10,7 @@ let home = document.getElementById("home-index");
 //CONTEO DE ARRAYS
 const countBox = document.querySelector(".sortBy span");
 function countData(data) {
-countBox.innerHTML = `${data.length} de 251 pokémons` ;
+countBox.innerHTML = `${data.length} of 251 pokemons` ;
 }
 
 //función que muestra los pokemones
