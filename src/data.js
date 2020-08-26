@@ -6,7 +6,7 @@ const poke = data.pokemon;
 
 export const sortDataByAscNumber = x => x.sort((a, b) => (a.num < b.num) ? -1 : 1);
 
-export const sortDataByDescNumber = x => x.sort((a, b) => (a.num > b.num) ? 1 : -1);
+export const sortDataByDescNumber = x => x.sort((a, b) => (a.num > b.num) ? -1 :  1);
 
 export const sortDataByLetA = x => x.sort((a, b) => (a.name < b.name) ? -1 : 1);
 
