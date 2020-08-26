@@ -34,6 +34,9 @@ let home = document.getElementById("home-index");
 const btnFilterData = document.getElementById("btn-type-select");
 btnFilterData.addEventListener("change", filterDataFx);
 
+const btnFilterDataPhone = document.getElementById("btn-type-phone");
+btnFilterDataPhone.addEventListener("change", filterDataFx);
+
 function filterDataFx() {
    /*  let newPokemonData = pokemonData; */
    
@@ -87,7 +90,7 @@ let btnSortByLetter = document.getElementById("btn-sort-letter");
 btnSortByLetter.addEventListener("change", sortByLetter);
 
 function sortByLetter() {
-    if (home !== ""){
+    if (home != null){
         console.log(home);
     if (btnSortByLetter.value == "ascendingLetter") {
         let newPokemonData = pokemonData;
@@ -113,5 +116,7 @@ const btnInicio = document.getElementById("btn-home-pc");
 btnInicio.addEventListener("click", showData);
 
 
-
-
+//Filter-menu
+document.getElementById("type-phone").addEventListener("click", function (){
+    document.querySelector('.types-modal').style.display ='flex';
+});
