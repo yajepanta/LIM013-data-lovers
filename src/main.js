@@ -5,10 +5,15 @@ const pokemonDataConst = data.pokemon;
 let pokemonData = pokemonDataConst.slice();
 // llamamos a "home", que es el espacio donde se mostrará toda la data
 let home = document.getElementById("home-index");
-
+const countBox = document.querySelector(".sortBy span");
+const btnHome = document.getElementById("btn-home-phone");
+const btnInicio = document.getElementById("btn-home-pc");
+const btnFilterData = document.getElementById("btn-type-select");
+const btnSortByNumber = document.getElementById("btn-sort-number");
+const btnSortByLetter = document.getElementById("btn-sort-letter");
+const btnFilterPhone = document.getElementById("btn-type-phone");
 
 //CONTEO DE ARRAYS
-const countBox = document.querySelector(".sortBy span");
 function countData(data) {
 countBox.innerHTML = `${data.length} of 251 pokemons` ;
 }
@@ -19,7 +24,10 @@ function showData(data) {
     home.innerHTML = `${data.map(pokemonTemplate).join('')}`;
     countData(data);
 }
+
+//ShowData ejecuta la función al cargar la página
 showData(pokemonDataConst);
+
 // añade el array con los tipos ordenados
 function types(type) {
     return `
@@ -47,16 +55,12 @@ function pokemonTemplate(pokemon) {
 //BARRA DE NAVEGACIÓN 
 
 //botón index, que va al inicio - mobile
-const btnHome = document.getElementById("btn-home-phone");
 btnHome.addEventListener("click", function(){showData(pokemonDataConst)});
 
 //botón inicio - pc
-const btnInicio = document.getElementById("btn-home-pc");
 btnInicio.addEventListener("click", function(){showData(pokemonDataConst)});
 
-
 //FUNCIÓN FILTRAR POR TIPO
-const btnFilterData = document.getElementById("btn-type-select");
 btnFilterData.addEventListener("change", filterDataFx);
 
 
@@ -67,32 +71,12 @@ function filterDataFx() {
     showData(pokemonData);
 }
 
-
-
-
-
-
                             // SECTION: SORT BY
 
-
 // sortByNumber
-let btnSortByNumber = document.getElementById("btn-sort-number");
 btnSortByNumber.addEventListener("change", sortByNumber);
 
 function sortByNumber() {
-    /*     if (btnSortByNumber.value == "ascendingOrder") {
-            //Mantener como array
-            let sortedByNumber = pokemonData;
-            sortedByNumber = DataFunctions.sortDataByAscNumber(sortedByNumber);
-            //Convertir a string "pokemonTemplate"
-            home.innerHTML = `${sortedByNumber.map(pokemonTemplate).join('')}`;
-        }
-        else {
-            let sortedByNumber = pokemonData;
-            sortedByNumber = DataFunctions.sortDataByDescNumber(sortedByNumber);
-            home.innerHTML = `${sortedByNumber.map(pokemonTemplate).reverse().join('')}`;
-        } */
-
     if (btnSortByNumber.value == "ascendingOrder") {
         //Mantener como array
         DataFunctions.sortDataByAscNumber(pokemonData);
@@ -101,11 +85,10 @@ function sortByNumber() {
     else {
         DataFunctions.sortDataByDescNumber(pokemonData);
         showData(pokemonData);
-
     }
 }
+
 // sortByLetter
-let btnSortByLetter = document.getElementById("btn-sort-letter");
 btnSortByLetter.addEventListener("change", sortByLetter);
 
 function sortByLetter() {
@@ -119,16 +102,11 @@ function sortByLetter() {
         }
 }
 
-
-
-
-
 //Filter-menu
 document.getElementById("type-phone").addEventListener("click", function (){
     document.querySelector('.modal-content').style.display ='flex';
 });
 
-const btnFilterPhone = document.getElementById("btn-type-phone");
 btnFilterPhone.addEventListener("change", filterData);
 
 function filterData () {
