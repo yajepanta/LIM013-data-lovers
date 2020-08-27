@@ -70,22 +70,22 @@ Screener validation:
 * Como mencione, es un poco para saber cómo interactúan los usuarios con este juego.
 
 ### Screenshots de entrevistas
-![](/entrevista1.jpg)
+![](entrevista1.jpg)
 ----------------------
-![](/entrevista2.jpg)
+![](entrevista2.jpg)
 
 ### Formulario Google
 [Enlace del formulario](https://forms.gle/DMgwMfUx436QXyVL7)
 
 ### Resultados del formulario
-![](/r1.png)
-![](/r2.png)
-![](/r3.png)
-![](/r4.png)
-![](/r5.png)
-![](/r6.png)
-![](/r7.png)
-![](/r8.png)
+![](r1.png)
+![](r2.png)
+![](r3.png)
+![](r4.png)
+![](r5.png)
+![](r6.png)
+![](r7.png)
+![](r8.png)
 
 ### Conclusiones de entrevistas y formulario Google
 * La edad de los jugadores en su mayoría se encuentran entre los 20 y 30 años. 
