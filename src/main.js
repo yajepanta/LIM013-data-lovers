@@ -8,10 +8,10 @@ let home = document.getElementById("home-index");
 const countBox = document.querySelector(".sortBy span");
 const btnHome = document.getElementById("btn-home-phone");
 const btnInicio = document.getElementById("btn-home-pc");
-const btnFilterData = document.getElementById("btn-type-select");
+const btnFilterPc = document.getElementById("btn-type-pc");
+const btnFilterPhone = document.getElementById("btn-type-phone");
 const btnSortByNumber = document.getElementById("btn-sort-number");
 const btnSortByLetter = document.getElementById("btn-sort-letter");
-const btnFilterPhone = document.getElementById("btn-type-phone");
 
 //CONTEO DE ARRAYS
 function countData(data) {
@@ -61,16 +61,24 @@ btnHome.addEventListener("click", function(){showData(pokemonDataConst)});
 btnInicio.addEventListener("click", function(){showData(pokemonDataConst)});
 
 //FUNCIÓN FILTRAR POR TIPO
-btnFilterData.addEventListener("change", filterDataFx);
+document.getElementById("type-phone").addEventListener("click", function (){
+    document.querySelector('.modal-content').style.display ='flex';
+});
 
+document.getElementById("btn-type-pc").addEventListener("click", function (){
+    document.querySelector('.modal-content').style.display ='flex';
+});
 
-function filterDataFx() {
-    /*  let newPokemonData = pokemonData; */
+btnFilterPhone.addEventListener("change", filterData);
+btnFilterPc.addEventListener("change", filterData);
+
+function filterData () {
+    document.querySelector('.modal-content').style.display ='none';
     pokemonData = pokemonDataConst;
-    pokemonData = DataFunctions.filterData(pokemonData, btnFilterData.value);
+    pokemonData = DataFunctions.filterData(pokemonData, btnFilterPhone.value);
+    /*console.log(pokemonData);*/
     showData(pokemonData);
 }
-
                             // SECTION: SORT BY
 
 // sortByNumber
@@ -102,17 +110,3 @@ function sortByLetter() {
         }
 }
 
-//Filter-menu
-document.getElementById("type-phone").addEventListener("click", function (){
-    document.querySelector('.modal-content').style.display ='flex';
-});
-
-btnFilterPhone.addEventListener("change", filterData);
-
-function filterData () {
-    document.querySelector('.modal-content').style.display ='none';
-    pokemonData = pokemonDataConst;
-    pokemonData = DataFunctions.filterData(pokemonData, btnFilterPhone.value);
-    /*console.log(pokemonData);*/
-    showData(pokemonData);
-}

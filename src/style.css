@@ -161,6 +161,31 @@ main {
   background: #969696;
   border-radius: 5px;
   }
+
+  .modal-content {
+    width: 350px;
+    height: 400px;
+    position: absolute;
+    top: +45px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    display: none;
+  }
+
+
+  .modal-dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    background-color: #14133A;
+    color: aliceblue;
+    border: none;
+    margin-right: 25px;
+    font-size: 17px;
+    font-weight: bold;
+  }
  
   /* MEDIA QUERYS*/ 
 
@@ -229,13 +254,30 @@ main {
     display: grid;
     grid-template-columns: 250px 250px 250px 250px;
     }
+
+  .modal-content {
+      width: 350px;
+      height: 400px;
+      position: relative;
+      top: -50px;
+      right: -480px;
+    }
+
   }
   /* para tablet y desktop max-width */
+
+ 
+ 
+
 
 @media screen and (max-width: 500px)  {
   .btn-nav-phone  {
     display: flex;
     }
+
+  .nav-phone {
+    justify-content: center;
+  }
 
   .btn-nav-pc {
     display: none;
@@ -246,27 +288,4 @@ main {
     }
   }
   
-  .modal-content {
-    width: 350px;
-    height: 400px;
-    position: absolute;
-    top: +45px;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    display: none;
-  }
-
-
-  .modal-dropdown {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    background-color: #14133A;
-    color: aliceblue;
-    border: none;
-    margin-right: 25px;
-    font-size: 17px;
-    font-weight: bold;
-  }
+  
