@@ -72,20 +72,20 @@ Screener validation:
 ### Screenshots de entrevistas
 ![](imag/entrevista1.jpg)
 ----------------------
-![](entrevista2.jpg)
+![](imag/entrevista2.jpg)
 
 ### Formulario Google
 [Enlace del formulario](https://forms.gle/DMgwMfUx436QXyVL7)
 
 ### Resultados del formulario
-![](r1.png)
-![](r2.png)
-![](r3.png)
-![](r4.png)
-![](r5.png)
-![](r6.png)
-![](r7.png)
-![](r8.png)
+![](imag/r1.png)
+![](imag/r2.png)
+![](imag/r3.png)
+![](imag/r4.png)
+![](imag/r5.png)
+![](imag/r6.png)
+![](imag/r7.png)
+![](imag/r8.png)
 
 ### Conclusiones de entrevistas y formulario Google
 * La edad de los jugadores en su mayoría se encuentran entre los 20 y 30 años. 
@@ -103,17 +103,17 @@ Los resultados de las entrevistas y cuestionarios nos ayudaron a entender las ne
 ### PROTOTIPOS DE BAJA FIDELIDAD
 Nuestros prototipos de baja fidelidad fueron hecho a lápiz y papel para poder iterarlos fácilmente. La idea inicial consistía en que la pantalla inicial mostrara una barra de navegación con botones de "Menu", un buscador y selectores para filtrar y/o ordenar las tarjetas de pokemones. Debajo de esta barra, se mostrarían todos los pokemones apenas se entre al sitio, y luego el número de ellos cambiaría al usar los botones.
 
-![](s1.jpeg)
+![](imag/s1.jpeg)
 ------------
-![](s2.jpeg)
+![](imag/s2.jpeg)
 
 Luego, se diseñó un sistema de flujo por el cual el usuario observaría el sitio web, y se realizó en versión móvil. En esta etapa, se estableció crear dos funcionalidad aparte de el filtrado y ordenamiento de tarjetas. Debido al feedback que obtuvimos de los cuestionarios online, consideramos una ventana "Comparar" donde se pueden seleccionar 2 pokemon (el propio y el del oponente) para comparar las habilidades y ataques de ambos, y otra ventana de "Pokedex" donde el usuario puede seleccionar aquellos pokemons que ya ha capturado para poder visualizar aquellos que le faltan para completar su pokedex.
 
-![](s3.jpeg)
-![](s4.jpg)
-![](s5.jpeg)
-![](s6.jpg)
-![](s7.jpeg)
+![](imag/s3.jpeg)
+![](imag/s4.jpg)
+![](imag/s5.jpeg)
+![](imag/s6.jpg)
+![](imag/s7.jpeg)
 
 TESTS CON USUARIOS
 * La barra de navegación no era clara pues consistía en 2 filas. Una con el botón menu y el buscador, y otra debajo con los botones de filtrado. Se consideraba que no había jerarquía, y era confuso si se podía o no seleccionar solo 1 a la vez, o si se podía hacer click a todos.
@@ -125,13 +125,13 @@ Se tomaron en cuenta las opiniones de los usuarios y se decidió:
 * Colocar una barra de navegación con un color llamativo con los botones de "Home", "Types" y el buscador.
 * La ventana donde se visualizan los pokemons contedría una caja con un color distinto que contiene los selectores de "By name" y "By number". De esta forma, sería claro para el usuario que esta caja aplica a los pokemones visibles en la ventana luego de ser elegidos por tipo.
 
-![](d1.png)
-![](d2.png)
-![](d3.png)
-![](d4.png)
-![](d5.png)
-![](d6.png)
-![](d7.png)
+![](imag/d1.png)
+![](imag/d2.png)
+![](imag/d3.png)
+![](imag/d4.png)
+![](imag/d5.png)
+![](imag/d6.png)
+![](imag/d7.png)
 
 ## HISTORIAS
 
