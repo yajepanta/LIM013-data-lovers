@@ -70,7 +70,7 @@ Screener validation:
 * Como mencione, es un poco para saber cómo interactúan los usuarios con este juego.
 
 ### Screenshots de entrevistas
-![](entrevista1.jpg)
+![](imag/entrevista1.jpg)
 ----------------------
 ![](entrevista2.jpg)
 
