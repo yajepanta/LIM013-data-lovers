@@ -9,10 +9,15 @@ const home = document.getElementById("home-index");
 const countBox = document.querySelector(".sortBy span");
 const btnHome = document.getElementById("btn-home-phone");
 const btnInicio = document.getElementById("btn-home-pc");
-const btnFilterData = document.getElementById("btn-type-select");
+const btnFilterPc = document.getElementById("btn-type-pc");
+const btnFilterPhone = document.getElementById("btn-type-phone");
 const btnSortByNumber = document.getElementById("btn-sort-number");
 const btnSortByLetter = document.getElementById("btn-sort-letter");
-const btnFilterPhone = document.getElementById("btn-type-phone");
+const nameType= document.getElementById("type-name");
+const boxType = document.getElementById("type-box");
+boxType.style.display = 'none';
+const searchBar = document.getElementById("search");
+
 
 //CONTEO DE ARRAYS
 function countData(data) {
@@ -169,7 +174,7 @@ function nextEvolution(pokemon) {
 function pokemonTemplate(pokemon) {
 
     return `
-        <div class="pokemon-card">
+        <div class="pokemon-card" id="pokemon-card">
             <p>${pokemon.num}</p>
             <h2>${pokemon.name.toUpperCase()}</h2>
             <img class="pokemon-img" src="${pokemon.img}">
@@ -202,22 +207,51 @@ function pokemonTemplate(pokemon) {
 
 //BARRA DE NAVEGACIÓN 
 
-//botón index, que va al inicio - mobile
-btnHome.addEventListener("click", function () { showData(pokemonDataConst) });
+//botón HOME
+btnHome.addEventListener("click", dataHome);
+btnInicio.addEventListener("click", dataHome);
 
-//botón inicio - pc
-btnInicio.addEventListener("click", function () { showData(pokemonDataConst) });
+function dataHome(){
+    pokemonData = pokemonDataConst;
+    showData(pokemonData);
+    boxType.style.display = 'none';
+    nameType.innerHTML = "" ;
+};
+
 
 //FUNCIÓN FILTRAR POR TIPO
-btnFilterData.addEventListener("change", filterDataFx);
+document.getElementById("type-phone").addEventListener("click", function (){
+    document.querySelector('.modal-content').style.display ='flex';
+});
 
-function filterDataFx() {
-    /*  let newPokemonData = pokemonData; */
+document.getElementById("btn-type-pc").addEventListener("click", function (){
+    document.querySelector('.modal-content').style.display ='flex';
+});
+
+btnFilterPhone.addEventListener("change", filterData);
+btnFilterPc.addEventListener("change", filterData);
+
+function filterData () {
+    document.querySelector('.modal-content').style.display ='none';
+
     pokemonData = pokemonDataConst;
-    pokemonData = DataFunctions.filterData(pokemonData, btnFilterData.value);
+    pokemonData = DataFunctions.filterData(pokemonData, btnFilterPhone.value);
+    /*console.log(pokemonData);*/
+    boxType.style.display = 'flex';
+    nameType.innerHTML = btnFilterPhone.value.toUpperCase() ;
     showData(pokemonData);
 }
-// SECTION: SORT BY
+
+//searchBar
+searchBar.addEventListener ('keyup', (x) => {
+    pokemonData = pokemonDataConst;
+    pokemonData = DataFunctions.filterByName(pokemonData, x.target.value);
+    showData(pokemonData);
+});
+
+
+                            // SECTION: SORT BY
+
 
 // sortByNumber
 btnSortByNumber.addEventListener("change", sortByNumber);
@@ -248,12 +282,12 @@ function sortByLetter() {
     }
 }
 
+
 //Filter-menu
 document.getElementById("type-phone").addEventListener("click", function () {
     document.querySelector('.modal-content').style.display = 'flex';
 });
 
-btnFilterPhone.addEventListener("change", filterData);
 
 function filterData() {
     document.querySelector('.modal-content').style.display = 'none';
@@ -277,3 +311,4 @@ function showMoreData(e) {
 
     contentMoreDataModal.innerHTML = ` ${e.currentTarget.innerHTML} ${e.currentTarget.nextElementSibling.innerHTML} `;
 }
+
