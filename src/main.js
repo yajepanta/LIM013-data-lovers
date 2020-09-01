@@ -3,8 +3,9 @@ import data from './data/pokemon/pokemon.js';
 
 const pokemonDataConst = data.pokemon;
 let pokemonData = pokemonDataConst.slice();
+
 // llamamos a "home", que es el espacio donde se mostrará toda la data
-let home = document.getElementById("home-index");
+const home = document.getElementById("home-index");
 const countBox = document.querySelector(".sortBy span");
 const btnHome = document.getElementById("btn-home-phone");
 const btnInicio = document.getElementById("btn-home-pc");
@@ -15,7 +16,7 @@ const btnFilterPhone = document.getElementById("btn-type-phone");
 
 //CONTEO DE ARRAYS
 function countData(data) {
-countBox.innerHTML = `${data.length} of 251 pokemons` ;
+    countBox.innerHTML = `${data.length} of 251 pokémons`;
 }
 
 //función que muestra los pokemones
@@ -23,46 +24,192 @@ function showData(data) {
     //Convertir a string "pokemonTemplate"
     home.innerHTML = `${data.map(pokemonTemplate).join('')}`;
     countData(data);
+    //Tarjeta del pokémon a la que luego se le hará clic.
+    const pokemonCard = document.querySelectorAll(".pokemon-card");
+    pokemonCard.forEach((i) => i.addEventListener('click', (e) => showMoreData(e)));
 }
 
-//ShowData ejecuta la función al cargar la página
+//ShowData ejecuta la función al cargar la página.
 showData(pokemonDataConst);
 
-// añade el array con los tipos ordenados
-function types(type) {
+// Añade el array con los tipos ordenados
+
+function typesList(type) {
     return `
-        <ul class="poke-types" style="list-style-type:none;">
+        <ul class="poke-types">
             ${type.map((type) => {
-        return `<li class="poke-type-list" style="float:left;">${type}</li>`;
-    }).join('')}
+        return `<li class="poke-list">${type}</li>`;
+                }).join('')}
         </ul>
         `;
 }
 
-// arrays con los datos de los pokemon en orden 0-9
-function pokemonTemplate(pokemon) {
+function attackList(pokemon) {
     return `
-        <div class="pokemon-card">
-            <p>${pokemon.num}</p>
-            <h2>${pokemon.name}</h2>
-            <img class="pokemon-img" src="${pokemon.img}">
-            ${types(pokemon.type)}
-        </div>
+        <ul class="poke-types" >
+            ${pokemon.map((attack) => {
+        return `<li class="poke-list">${attack.name}</li>`;
+                }).join('')}
+        </ul>
         `;
 }
 
+function evolutionList(pokemon) {
+    if (pokemon.egg !== "not in eggs") {
+        return `
+        <ul class="poke-types" >
+            <li class="poke-list">${pokemon.egg}</li>
+        </ul>
+        `;
+    }
+    else {
+        return `  `;
+    }
+}
+
+function prevEvolution(pokemon) {
+
+    if (pokemon.evolution["prev-evolution"] !== undefined) {
+        const prevevolution = pokemon.evolution["prev-evolution"];
+        const numevolution = prevevolution[0].num;
+        const nameevolution = prevevolution[0].name;
+        const candycost = prevevolution["candy-cost"];
+
+        if (pokemon.evolution["prev-evolution"][0]["prev-evolution"] !== undefined) {
+            const prevevolution2 = pokemon.evolution["prev-evolution"][0]["prev-evolution"];
+            const numevolution2 = prevevolution2[0].num;
+            const nameevolution2 = prevevolution2[0].name;
+            const candycost2 = prevevolution2[0]["candy-cost"];
+
+            return `
+            <div class="evolution-card">
+                <ul class="poke-types">
+                    <li>${numevolution} </li>
+                    <li>${nameevolution} </li>
+                    <li>${candycost} candies </li>
+                </ul>
+            </div>
+            <div class="evolution-card">
+                <ul class="poke-types">
+                    <li>${numevolution2} </li>
+                    <li>${nameevolution2} </li>
+                    <li>${candycost2} candies </li>
+                </ul>
+            </div>
+            `;
+        }
+
+        return `
+    <div class="evolution-card">
+        <ul class="poke-types">
+            <li>${numevolution} </li>
+            <li>${nameevolution} </li>
+            <li>${candycost} candies </li>
+        </ul>
+    </div>
+
+    `;
+    }
+
+    else {
+        return ` `;
+    }
+
+}
+
+function nextEvolution(pokemon) {
+
+    if (pokemon.evolution["next-evolution"] !== undefined) {
+        const nextevolution = pokemon.evolution["next-evolution"];
+        const numevolution = nextevolution[0].num;
+        const nameevolution = nextevolution[0].name;
+        const candycost = nextevolution[0]["candy-cost"];
+
+
+        if (pokemon.evolution["next-evolution"][0]["next-evolution"] !== undefined) {
+            const nextevolution2 = pokemon.evolution["next-evolution"][0]["next-evolution"];
+            const numevolution2 = nextevolution2[0].num;
+            const nameevolution2 = nextevolution2[0].name;
+            const candycost2 = nextevolution2[0]["candy-cost"];
+
+            return `
+                <div class="evolution-card">
+                    <ul class="poke-types">
+                        <li>${numevolution} </li>
+                        <li>${nameevolution} </li>             
+                        <li>${candycost} candies </li>
+                    </ul>
+                </div>
+                <div class="evolution-card">
+                    <ul class="poke-types">
+                        <li>${numevolution2} </li>
+                        <li>${nameevolution2} </li>
+                        <li>${candycost2} candies </li>
+                    </ul>
+                </div>
+                `;
+        }
+
+    return `
+            <div class="evolution-card">
+                <ul class="poke-types">
+                    <li>${numevolution} </li>
+                    <li>${nameevolution} </li>
+                    <li>${candycost} candies </li>
+                </ul>
+            </div>
+                `;
+    }
+
+    else {
+        return ``;
+    }
+}
+
+function pokemonTemplate(pokemon) {
+
+    return `
+        <div class="pokemon-card">
+            <p>${pokemon.num}</p>
+            <h2>${pokemon.name.toUpperCase()}</h2>
+            <img class="pokemon-img" src="${pokemon.img}">
+            ${typesList(pokemon.type)}
+        </div>
+
+        <div class="pokemon-card-modal hidden">
+            <h3>Resistant</h3>
+            ${typesList(pokemon.resistant)}
+            <h3>Weaknesses</h3>
+            ${typesList(pokemon.weaknesses)}
+            <h3>Special attacks</h3>   
+            ${attackList(pokemon["special-attack"])}
+            <h3>Quick moves</h3>   
+            ${attackList(pokemon["quick-move"])}
+                <div class="evolution"><label>Evolution</label>
+                    ${evolutionList(pokemon)}
+                    
+                        <ul class="poke-types">
+                            <li class="poke-list"> ${pokemon["buddy-distance-km"]} eggs</li>
+                        </ul>
+
+                    <div class="evolution-container">           
+                        ${prevEvolution(pokemon)}
+                        ${nextEvolution(pokemon)}     
+                    </div>  
+                </div>        
+        </div> `
+}
 
 //BARRA DE NAVEGACIÓN 
 
 //botón index, que va al inicio - mobile
-btnHome.addEventListener("click", function(){showData(pokemonDataConst)});
+btnHome.addEventListener("click", function () { showData(pokemonDataConst) });
 
 //botón inicio - pc
-btnInicio.addEventListener("click", function(){showData(pokemonDataConst)});
+btnInicio.addEventListener("click", function () { showData(pokemonDataConst) });
 
 //FUNCIÓN FILTRAR POR TIPO
 btnFilterData.addEventListener("change", filterDataFx);
-
 
 function filterDataFx() {
     /*  let newPokemonData = pokemonData; */
@@ -70,8 +217,7 @@ function filterDataFx() {
     pokemonData = DataFunctions.filterData(pokemonData, btnFilterData.value);
     showData(pokemonData);
 }
-
-                            // SECTION: SORT BY
+// SECTION: SORT BY
 
 // sortByNumber
 btnSortByNumber.addEventListener("change", sortByNumber);
@@ -92,27 +238,42 @@ function sortByNumber() {
 btnSortByLetter.addEventListener("change", sortByLetter);
 
 function sortByLetter() {
-        if (btnSortByLetter.value == "ascendingLetter") {
-            DataFunctions.sortDataByLetA(pokemonData);
-            showData(pokemonData);
-        }
-        else {
-            DataFunctions.sortDataByLetZ(pokemonData);
-            showData(pokemonData);
-        }
+    if (btnSortByLetter.value == "ascendingLetter") {
+        DataFunctions.sortDataByLetA(pokemonData);
+        showData(pokemonData);
+    }
+    else {
+        DataFunctions.sortDataByLetZ(pokemonData);
+        showData(pokemonData);
+    }
 }
 
 //Filter-menu
-document.getElementById("type-phone").addEventListener("click", function (){
-    document.querySelector('.modal-content').style.display ='flex';
+document.getElementById("type-phone").addEventListener("click", function () {
+    document.querySelector('.modal-content').style.display = 'flex';
 });
 
 btnFilterPhone.addEventListener("change", filterData);
 
-function filterData () {
-    document.querySelector('.modal-content').style.display ='none';
+function filterData() {
+    document.querySelector('.modal-content').style.display = 'none';
     pokemonData = pokemonDataConst;
     pokemonData = DataFunctions.filterData(pokemonData, btnFilterPhone.value);
-    /*console.log(pokemonData);*/
     showData(pokemonData);
+}
+
+//Tarjeta del pokémon a la que luego se le hará clic. Revisar en que momento se puede llamar. window onload.
+
+const closeMoreData = document.getElementById("closeModal");
+closeMoreData.addEventListener("click", () => moreDataModal.classList.add("hidden"));
+
+const moreDataModal = document.getElementById("moreDataModal");
+const contentMoreDataModal = document.getElementById("contentMoreDataModal");
+
+function showMoreData(e) {
+
+    moreDataModal.classList.remove("hidden");
+    moreDataModal.classList.add("moreData");
+
+    contentMoreDataModal.innerHTML = ` ${e.currentTarget.innerHTML} ${e.currentTarget.nextElementSibling.innerHTML} `;
 }
