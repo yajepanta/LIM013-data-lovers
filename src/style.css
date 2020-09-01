@@ -149,6 +149,10 @@ main {
   width: 155px;
 }
 
+.pokemon-card:hover {
+  background: rgba(196, 192, 192, 0.75);
+}
+
 /* elimina el padding que estaba al costado de cada <ul> */
 .poke-types {
   padding: 0px;
@@ -166,7 +170,8 @@ main {
     width: 350px;
     height: 400px;
     position: absolute;
-    top: +45px;
+    top: +52px;
+    right: -38px;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -187,6 +192,38 @@ main {
     font-weight: bold;
   }
  
+.types-name {
+  color: rgb(88, 81, 81);
+  margin: 10px;
+}
+
+.types-box {
+  background: rgba(255, 255, 255, 0.75);
+  padding: 5px;
+  border-radius: 5px;
+  width: 950px;
+  justify-content: center;
+}
+
+input {
+  height: 30px;
+  width: 230px;
+  border: none;
+  font-size: 14px;
+  border-radius: 3px; 
+  position: relative;
+  top: -2px;
+  right: -18px;
+  }
+
+
+.btn-search-img {
+position: relative;
+top: -15px;
+left: -30px;
+}
+
+
   /* MEDIA QUERYS*/ 
 
 @media screen and (min-width: 501px)  { 
@@ -222,33 +259,7 @@ main {
       order: 2;
       }
     
-    input {
-      height: 30px;
-      width: 200px;
-      border: none;
-      font-size: 14px;
-      border-radius: 3px; 
-      position: relative;
-      top: -2px;
-      }
-
-  #btn-search {
-    display: flex;
-    background-color: #ffffff;
-    width: 31px;
-    height: 32px;
-    padding: 0px;
-    margin:0;
-    margin-left: 2px;
-    margin-right: 25px;
-    justify-content: center;
-
-  }
-
-  .btn-search-img {
-    position: relative;
-    top: -15px;
-  }
+    
 
   .index{
     display: grid;
@@ -270,12 +281,20 @@ main {
  
 
 
-@media screen and (max-width: 500px)  {
+@media screen and (max-width: 500px)  { 
+  header {
+    justify-content: center;
+  }
+
+
   .btn-nav-phone  {
     display: flex;
+    margin-left: 0;
+    margin-right:0;
     }
 
   .nav-phone {
+    display: flex;
     justify-content: center;
   }
 
@@ -285,7 +304,44 @@ main {
 
   form {
     order: 0;
+    width: 200px;
+    
+    justify-content: center;
     }
+
+  .pokemon-card {
+      display: flex;
+      flex-direction: column;
+      max-width: 250px;
+      height: 280px;
+      padding: 10px;
+      margin: 15px;
+      }
+
+  .index{
+        display: grid;
+        grid-template-columns: 250px;
+        
+        }
+
+  input {
+    height: 40px;
+    width: 250px;
+    position: relative;
+    top: 0px;
+    right: -27px;
+    padding:0;
+    margin:0;
   }
+
+  .btn-search-img {
+    left: -10px;
+    top: -12px;
+    }
   
   
+  .types-box {
+    margin-top:20px;
+    width: 280px;
+  }
+}

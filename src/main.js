@@ -12,6 +12,11 @@ const btnFilterPc = document.getElementById("btn-type-pc");
 const btnFilterPhone = document.getElementById("btn-type-phone");
 const btnSortByNumber = document.getElementById("btn-sort-number");
 const btnSortByLetter = document.getElementById("btn-sort-letter");
+const nameType= document.getElementById("type-name");
+const boxType = document.getElementById("type-box");
+boxType.style.display = 'none';
+const searchBar = document.getElementById("search");
+
 
 //CONTEO DE ARRAYS
 function countData(data) {
@@ -42,7 +47,7 @@ function types(type) {
 // arrays con los datos de los pokemon en orden 0-9
 function pokemonTemplate(pokemon) {
     return `
-        <div class="pokemon-card">
+        <div class="pokemon-card" id="pokemon-card">
             <p>${pokemon.num}</p>
             <h2>${pokemon.name}</h2>
             <img class="pokemon-img" src="${pokemon.img}">
@@ -54,11 +59,16 @@ function pokemonTemplate(pokemon) {
 
 //BARRA DE NAVEGACIÓN 
 
-//botón index, que va al inicio - mobile
-btnHome.addEventListener("click", function(){showData(pokemonDataConst)});
+//botón HOME
+btnHome.addEventListener("click", dataHome);
+btnInicio.addEventListener("click", dataHome);
 
-//botón inicio - pc
-btnInicio.addEventListener("click", function(){showData(pokemonDataConst)});
+function dataHome(){
+    pokemonData = pokemonDataConst;
+    showData(pokemonData);
+    boxType.style.display = 'none';
+    nameType.innerHTML = "" ;
+};
 
 //FUNCIÓN FILTRAR POR TIPO
 document.getElementById("type-phone").addEventListener("click", function (){
@@ -77,8 +87,20 @@ function filterData () {
     pokemonData = pokemonDataConst;
     pokemonData = DataFunctions.filterData(pokemonData, btnFilterPhone.value);
     /*console.log(pokemonData);*/
+    boxType.style.display = 'flex';
+    nameType.innerHTML = btnFilterPhone.value.toUpperCase() ;
     showData(pokemonData);
 }
+
+
+//searchBar
+searchBar.addEventListener ('keyup', (x) => {
+    pokemonData = pokemonDataConst;
+    pokemonData = DataFunctions.filterByName(pokemonData, x.target.value);
+    showData(pokemonData);
+});
+
+
                             // SECTION: SORT BY
 
 // sortByNumber
@@ -109,4 +131,6 @@ function sortByLetter() {
             showData(pokemonData);
         }
 }
+
+
 

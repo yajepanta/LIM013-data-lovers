@@ -36,9 +36,11 @@
             </select>
           </div>
         <form>
-          <label for="input-search"></label>
-          <input class="input-search" id="search" placeholder="Enter name of pokemon here">
-          <button class="btn-nav-phone" id="btn-search"><img src="img/search.svg" class="btn-search-img" style="height:32px;"/></button>  
+          
+          <input class="input-search" id="search" placeholder="Enter name of pokemon">
+          <img src="img/search.svg" class="btn-search-img" style="height:32px; width:32px"/>
+          <!--<button class="btn-nav-phone" id="btn-search"><img src="img/search.svg" class="btn-search-img" style="height:32px;"/></button>  
+          -->
         </form>
         <button class="btn-nav-phone" id="btn-home-phone"><img src="img/home.png"/></button>
         <!-- <button class="btn-nav" id="type"><img src="battle.svg" class="img-icon"/></button>
@@ -54,7 +56,9 @@
     </header>
 
     <main>
-      
+      <div class="types-box" id="type-box"> 
+        <h2 class="types-name" id="type-name"></h2>
+      </div>
       <section class="sortBy">
         <span></span>
         <select class="btn-sort" id="btn-sort-letter">
@@ -80,6 +84,6 @@
     </footer>
 
     <script src="main.js" type="module"></script>
-    <script type="text/javascript" src="css3-mediaqueries.js"></script>
+    <!--<script type="text/javascript" src="css3-mediaqueries.js"></script>-->
   </body>
 </html>
