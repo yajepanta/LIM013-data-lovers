@@ -10,7 +10,6 @@ html, body {
   width: 100vw;
   }
 
-  
 /* header: padre
   hijos: img  - nav pc - nav phone
   flex-direction: column: en columna el logo y la barra de navegación */
@@ -46,7 +45,7 @@ nav{
   width: 20px;
   }
 
-  /* form tiene como hijos input search y .btn-search, estos deben estar pegados */
+  /* form tiene como hijos input search y ,btn-nav-phone, estos deben estar pegados */
 
 form {  
   display: flex;
@@ -61,12 +60,7 @@ input {
   font-size: 14px;
   border-radius: 3px; 
   }
-/*
-.btn-search {
-  border: none;
-  background-color: #ffffff;
-  }
-*/
+
 .btn-nav-phone {
   background-color: #ffffff;
   border: none;
@@ -106,6 +100,7 @@ main {
   border-radius: 3px;
   }
 
+/* Texto que contiene el número de pokemons */
   span {
     margin-left: 15px;
     font-weight: bold;
@@ -138,16 +133,80 @@ main {
   margin: 20px;
   background: rgba(255, 255, 255, 0.75);
   border-radius: 5px;
-  overflow: hidden;
+ /*  overflow: hidden; */
   text-align: center;
   }
 
+.moreData {
+  /* fixed en desktop */
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.75);
+  color: black;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+/* .moreData > img {
+  height: 500px;
+} */
+
+#closeModal {
+  border: none;
+
+}
+#closeModal > img {
+  background: inherit;
+  height: 30px;
+  width: 30px;
+}
+
+.pokemon-card-modal{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.evolution-card{
+  background: #14133A;
+  color: white;
+  justify-content: center;
+  border-radius: 5px;
+  
+}
+
+.evolution {
+  display: flex;
+  flex-direction: column;
+}
+.evolution-card ul{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.evolution-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.pokemon-card-modal ul {
+  display: flex;
+  flex-direction: column;
+}
+
     /* accede a la etiqueta IMG dentro del div pokemon card (creados en main.js) */
-.pokemon-card img {
+/* .pokemon-card img {
   display: flex;
   justify-content: center;
   width: 155px;
-}
+} */
 
 .pokemon-card:hover {
   background: rgba(196, 192, 192, 0.75);
@@ -156,11 +215,14 @@ main {
 /* elimina el padding que estaba al costado de cada <ul> */
 .poke-types {
   padding: 0px;
+  list-style-type:none;
 }
 
-.poke-type-list {
+/* formato de las viñetas */
+.poke-list {
   margin:3px;
   padding: 5px;
+  float:left;
   color: #000;
   background: #969696;
   border-radius: 5px;
@@ -192,6 +254,11 @@ main {
     font-weight: bold;
   }
  
+
+.hidden {
+  display: none;
+}
+
 .types-name {
   color: rgb(88, 81, 81);
   margin: 10px;
@@ -266,16 +333,22 @@ left: -30px;
     grid-template-columns: 250px 250px 250px 250px;
     }
 
+
+
+  .moreData {
+    width: 80vw;
+
   .modal-content {
       width: 350px;
       height: 400px;
       position: relative;
       top: -50px;
       right: -480px;
+
+    
     }
 
   }
-  /* para tablet y desktop max-width */
 
  
  
@@ -344,4 +417,21 @@ left: -30px;
     margin-top:20px;
     width: 280px;
   }
+
+
+  .modal-dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    background-color: #14133A;
+    color: aliceblue;
+    border: none;
+    margin-right: 25px;
+    font-size: 17px;
+    font-weight: bold;
+  }
+
+  
 }
+

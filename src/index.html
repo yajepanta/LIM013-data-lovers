@@ -67,23 +67,37 @@
           <option value="descendingLetter"> Z-A </option>
         </select>
 
-        <select class="btn-sort" id="btn-sort-number">
-          <option> By number </option>
-          <option value="ascendingOrder"> 0-9 </option>
-          <option value="descendingOrder"> 9-0 </option>
-        </select>
-      </section>
-      
-      <section class="index" id="home-index">
+  <main>
+    <section class="sortBy">
+      <span></span>
+      <select class="btn-sort" id="btn-sort-letter">
+        <option> By name </option>
+        <option value="ascendingLetter"> A-Z </option>
+        <option value="descendingLetter"> Z-A </option>
+      </select>
 
-      </section>
-    </main>
+      <select class="btn-sort" id="btn-sort-number">
+        <option> By number </option>
+        <option value="ascendingOrder"> 0-9 </option>
+        <option value="descendingOrder"> 9-0 </option>
+      </select>
+    </section>
 
-    <footer>
+    <section class="index" id="home-index">
 
-    </footer>
+    </section>
 
-    <script src="main.js" type="module"></script>
-    <!--<script type="text/javascript" src="css3-mediaqueries.js"></script>-->
-  </body>
+    <section class="hidden" id="moreDataModal">
+      <button type=button id="closeModal"><img src="img/close.png"></button>
+      <div id="contentMoreDataModal"></div>
+    </section>
+  </main>
+
+  <footer>
+
+  </footer>
+
+  <script src="main.js" type="module"></script>
+</body>
+
 </html>
