@@ -216,7 +216,7 @@ function dataHome(){
     showData(pokemonData);
     boxType.style.display = 'none';
     nameType.innerHTML = "" ;
-};
+}
 
 
 //FUNCIÓN FILTRAR POR TIPO
@@ -236,7 +236,7 @@ function filterData () {
 
     pokemonData = pokemonDataConst;
     pokemonData = DataFunctions.filterData(pokemonData, btnFilterPhone.value);
-    /*console.log(pokemonData);*/
+    
     boxType.style.display = 'flex';
     nameType.innerHTML = btnFilterPhone.value.toUpperCase() ;
     showData(pokemonData);
@@ -283,6 +283,7 @@ function sortByLetter() {
 }
 
 
+/*      en comentarios hasta seguir probando 
 //Filter-menu
 document.getElementById("type-phone").addEventListener("click", function () {
     document.querySelector('.modal-content').style.display = 'flex';
@@ -294,7 +295,8 @@ function filterData() {
     pokemonData = pokemonDataConst;
     pokemonData = DataFunctions.filterData(pokemonData, btnFilterPhone.value);
     showData(pokemonData);
-}
+} */
+
 
 //Tarjeta del pokémon a la que luego se le hará clic. Revisar en que momento se puede llamar. window onload.
 

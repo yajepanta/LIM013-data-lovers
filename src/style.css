@@ -228,16 +228,16 @@ main {
   border-radius: 5px;
   }
 
-  .modal-content {
-    width: 350px;
-    height: 400px;
-    position: absolute;
-    top: +52px;
-    right: -38px;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    display: none;
+.modal-content {
+   width: 350px;
+  height: 400px;
+  position: absolute;
+  top: +52px;
+  right: -38px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  display: none;
   }
 
 
@@ -337,6 +337,7 @@ left: -30px;
 
   .moreData {
     width: 80vw;
+  }
 
   .modal-content {
       width: 350px;
@@ -344,10 +345,7 @@ left: -30px;
       position: relative;
       top: -50px;
       right: -480px;
-
-    
     }
-
   }
 
  
