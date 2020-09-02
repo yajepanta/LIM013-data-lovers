@@ -156,22 +156,23 @@ main {
   height: 500px;
 } */
 
-#closeModal {
-  border: none;
-
+.closeModal {
+  position: absolute;
+  top: 0;
+  right: 14px;
+  font-size: 42px;
+  transform: rotate(45deg);
+  cursor: pointer;
+  color: gray;
 }
-#closeModal > img {
-  background: inherit;
-  height: 30px;
-  width: 30px;
-}
-
+/*
 .pokemon-card-modal{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
 }
+*/
 .evolution-card{
   background: #14133A;
   color: white;
@@ -209,7 +210,7 @@ main {
 } */
 
 .pokemon-card:hover {
-  background: rgba(196, 192, 192, 0.75);
+  background: rgba(224, 220, 220, 0.75);
 }
 
 /* elimina el padding que estaba al costado de cada <ul> */
@@ -272,7 +273,6 @@ main {
   justify-content: center;
   display: none;
   margin-top:20px;
-  width: 280px;
 }
 
 input {
@@ -292,6 +292,7 @@ position: relative;
 top: -15px;
 left: -30px;
 }
+
 
 
   /* MEDIA QUERYS*/ 
@@ -427,6 +428,8 @@ left: -30px;
     font-weight: bold;
   }
 
-  
+  .types-box {
+    width: 280px;
+  }
 }
 

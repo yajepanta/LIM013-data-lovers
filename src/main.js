@@ -179,12 +179,19 @@ function pokemonTemplate(pokemon) {
         </div>
 
         <div class="pokemon-card-modal hidden">
+            <div>
             <h3>Resistant</h3>
             ${typesList(pokemon.resistant)}
+            </div>
+            <div>
             <h3>Weaknesses</h3>
             ${typesList(pokemon.weaknesses)}
+            </div>
+            <div>
             <h3>Special attacks</h3>   
             ${attackList(pokemon["special-attack"])}
+            </div>
+            <div>
             <h3>Quick moves</h3>   
             ${attackList(pokemon["quick-move"])}
                 <div class="evolution"><label>Evolution</label>
@@ -198,7 +205,8 @@ function pokemonTemplate(pokemon) {
                         ${prevEvolution(pokemon)}
                         ${nextEvolution(pokemon)}     
                     </div>  
-                </div>        
+                </div>   
+            </div>      
         </div> `
 }
 
