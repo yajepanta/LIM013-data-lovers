@@ -270,6 +270,9 @@ main {
   border-radius: 5px;
   width: 950px;
   justify-content: center;
+  display: none;
+  margin-top:20px;
+  width: 280px;
 }
 
 input {
@@ -410,12 +413,6 @@ left: -30px;
     top: -12px;
     }
   
-  
-  .types-box {
-    margin-top:20px;
-    width: 280px;
-  }
-
 
   .modal-dropdown {
     display: flex;

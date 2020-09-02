@@ -15,7 +15,6 @@ const btnSortByNumber = document.getElementById("btn-sort-number");
 const btnSortByLetter = document.getElementById("btn-sort-letter");
 const nameType= document.getElementById("type-name");
 const boxType = document.getElementById("type-box");
-boxType.style.display = 'none';
 const searchBar = document.getElementById("search");
 
 
@@ -34,10 +33,8 @@ function showData(data) {
     pokemonCard.forEach((i) => i.addEventListener('click', (e) => showMoreData(e)));
 }
 
-//ShowData ejecuta la función al cargar la página.
+//ShowData ejecuta la función al cargar la página. Para mostrar los pk con la data original
 showData(pokemonDataConst);
-
-// Añade el array con los tipos ordenados
 
 function typesList(type) {
     return `
@@ -215,9 +212,7 @@ function dataHome(){
     pokemonData = pokemonDataConst;
     showData(pokemonData);
     boxType.style.display = 'none';
-    nameType.innerHTML = "" ;
 }
-
 
 //FUNCIÓN FILTRAR POR TIPO
 document.getElementById("type-phone").addEventListener("click", function (){
