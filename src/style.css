@@ -228,16 +228,16 @@ main {
   border-radius: 5px;
   }
 
-  .modal-content {
-    width: 350px;
-    height: 400px;
-    position: absolute;
-    top: +52px;
-    right: -38px;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    display: none;
+.modal-content {
+   width: 350px;
+  height: 400px;
+  position: absolute;
+  top: +52px;
+  right: -38px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  display: none;
   }
 
 
@@ -270,6 +270,9 @@ main {
   border-radius: 5px;
   width: 950px;
   justify-content: center;
+  display: none;
+  margin-top:20px;
+  width: 280px;
 }
 
 input {
@@ -337,6 +340,7 @@ left: -30px;
 
   .moreData {
     width: 80vw;
+  }
 
   .modal-content {
       width: 350px;
@@ -344,10 +348,7 @@ left: -30px;
       position: relative;
       top: -50px;
       right: -480px;
-
-    
     }
-
   }
 
  
@@ -412,12 +413,6 @@ left: -30px;
     top: -12px;
     }
   
-  
-  .types-box {
-    margin-top:20px;
-    width: 280px;
-  }
-
 
   .modal-dropdown {
     display: flex;
