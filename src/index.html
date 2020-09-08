@@ -43,15 +43,15 @@
           -->
         </form>
         <button class="btn-nav-phone" id="btn-home-phone"><img src="img/home.png"/></button>
-        <!-- <button class="btn-nav" id="type"><img src="battle.svg" class="img-icon"/></button>
-        <button class="btn-nav" id="type"><img src="pokedex.svg" class="img-icon"/></button> -->
+        <button class="btn-nav-phone" id="btn-versus-phone"><img src="img/versus.svg" class="versus-img" style="height:45px; width:45px"/></button>
+        <!-- <button class="btn-nav" id="type"><img src="pokedex.svg" class="img-icon"/></button> -->
       
 
         <!-- BARRA DE NAVEGACIÓN PARA ESCRITORIO -->
         <button type="button" class="btn-nav-pc" id="btn-home-pc"> HOME </button>
         <button type="button" class="btn-nav-pc" id="btn-type-pc"> TYPES </button>
-        <!-- <button class="btn-nav" id="type"> BATALLA </button>
-        <button class="btn-nav" id="type"> PÓKEDEX </button> -->
+        <button class="btn-nav-pc" id="btn-versus-pc"> BATALLA </button>
+        <!--<button class="btn-nav" id="type"> PÓKEDEX </button> -->
       </nav>
     </header>
 
@@ -60,7 +60,7 @@
         <h2 class="types-name" id="type-name"></h2>
       </div>
       
-    <section class="sortBy">
+    <section class="sortBy" id="sort-by">
       <span></span>
       <select class="btn-sort" id="btn-sort-letter">
         <option> By name </option>
@@ -82,6 +82,32 @@
     <section class="hidden" id="moreDataModal">
       <div class="closeModal" id="closeModal">+</div>
       <div id="contentMoreDataModal"></div>
+    </section>
+
+    <section class="versusBox" id="versus-content" style="display:none">
+
+        <h2>Pokemon Battle</h2>
+        <div class="choose">
+          <div class="choose-container">
+            <p>Your pokemon</p>
+            <input class="input-versus" id="search-mine" placeholder="Enter name">
+            <div class="suggestions-panel">
+
+            </div>
+          </div>
+          <div class="choose-container2">
+            <p>Opponent</p>
+            <input class="input-versus" id="search-opponent" placeholder="Enter name">
+            <div class="suggestions-panel2">
+
+            </div>
+          </div>
+        </div>
+        <!--<button class="enter-versus">Enter</button>-->
+        <div class="flex"> 
+          <div class="versus-card"></div>
+          <div class="versus-card2"></div>
+        </div>
     </section>
   </main>
 

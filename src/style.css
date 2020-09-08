@@ -80,6 +80,7 @@ input {
   top: -15px;
   }
 
+
   /* contiene a <section class="sortBy"> <section class="index" id="home-index"> */
 main {
   display: flex;
@@ -165,14 +166,16 @@ main {
   cursor: pointer;
   color: gray;
 }
-/*
+
+
 .pokemon-card-modal{
   display: flex;
   flex-direction: column;
   justify-content: left;
   align-items: center;
 }
-*/
+
+
 .evolution-card{
   background: #14133A;
   color: white;
@@ -294,6 +297,101 @@ left: -30px;
 }
 
 
+.versusBox {
+  width: 800px;
+  margin: auto;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.choose {
+  display: flex;
+  justify-content: center;
+}
+
+.choose-container {
+  margin-left: 20px;
+  margin-right: 20px;
+  justify-content: center;
+  width: 30%;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.choose-container input  {
+  background: transparent;
+  border: 0;
+  font-size: 20px;
+  color: rgb(46, 45, 45);
+  left:0;
+}
+
+.suggestions-panel {
+  border-top: 2px solid #999;
+}
+.suggestions-panel > div {
+  padding: 15px;
+  font-size: 15px;
+  color: rgb(63, 62, 62);
+  border-top: 1px solid #666;
+  cursor: pointer;
+}
+.suggestions-panel > div:hover {
+  background: rgba(125, 133, 156, 0.75);
+}
+
+.choose-container2 {
+  margin-left: 20px;
+  margin-right: 20px;
+  justify-content: center;
+  width: 30%;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.choose-container2 input {
+  background: transparent;
+  border: 0;
+  font-size: 20px;
+  color: rgb(46, 45, 45);
+  left:0;
+}
+
+.suggestions-panel2 {
+  border-top: 2px solid #999;
+}
+.suggestions-panel2 > div {
+  padding: 15px;
+  font-size: 15px;
+  color: rgb(63, 62, 62);
+  border-top: 1px solid #666;
+  cursor: pointer;
+}
+.suggestions-panel2 > div:hover {
+  background: rgba(125, 133, 156, 0.75);
+}
+
+.pokemon-card-versus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  width: 200px;
+  height: 650px;
+  padding: 20px;
+  margin: 20px;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 5px;
+ /*  overflow: hidden; */
+  text-align: center;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: center;
+  }
 
   /* MEDIA QUERYS*/ 
 
@@ -353,7 +451,7 @@ left: -30px;
   }
 
  
- 
+
 
 
 @media screen and (max-width: 500px)  { 

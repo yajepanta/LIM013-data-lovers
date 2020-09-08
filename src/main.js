@@ -8,14 +8,20 @@ let pokemonData = pokemonDataConst.slice();
 const home = document.getElementById("home-index");
 const countBox = document.querySelector(".sortBy span");
 const btnHome = document.getElementById("btn-home-phone");
-const btnInicio = document.getElementById("btn-home-pc");
+const btnHomePc = document.getElementById("btn-home-pc");
 const btnFilterPc = document.getElementById("btn-type-pc");
 const btnFilterPhone = document.getElementById("btn-type-phone");
+const sortBySection = document.getElementById("sort-by");
 const btnSortByNumber = document.getElementById("btn-sort-number");
 const btnSortByLetter = document.getElementById("btn-sort-letter");
 const nameType= document.getElementById("type-name");
 const boxType = document.getElementById("type-box");
 const searchBar = document.getElementById("search");
+
+const searchMine = document.getElementById('search-mine');
+const searchOpp = document.getElementById('search-opponent');
+const suggestionsPanel = document.querySelector('.suggestions-panel');
+const suggestionsPanel2 = document.querySelector('.suggestions-panel2');
 
 
 //CONTEO DE ARRAYS
@@ -25,7 +31,6 @@ function countData(data) {
 
 //función que muestra los pokemones
 function showData(data) {
-    //Convertir a string "pokemonTemplate"
     home.innerHTML = `${data.map(pokemonTemplate).join('')}`;
     countData(data);
     //Tarjeta del pokémon a la que luego se le hará clic.
@@ -214,12 +219,13 @@ function pokemonTemplate(pokemon) {
 
 //botón HOME
 btnHome.addEventListener("click", dataHome);
-btnInicio.addEventListener("click", dataHome);
+btnHomePc.addEventListener("click", dataHome);
 
 function dataHome(){
     pokemonData = pokemonDataConst;
     showData(pokemonData);
     boxType.style.display = 'none';
+    sortBySection.classList.remove("hidden");
 }
 
 //FUNCIÓN FILTRAR POR TIPO
@@ -243,15 +249,17 @@ function filterData () {
     boxType.style.display = 'flex';
     nameType.innerHTML = btnFilterPhone.value.toUpperCase() ;
     showData(pokemonData);
+    sortBySection.classList.remove("hidden");
 }
 
 //searchBar
-searchBar.addEventListener ('keyup', (x) => {
-    pokemonData = pokemonDataConst;
-    pokemonData = DataFunctions.filterByName(pokemonData, x.target.value);
-    showData(pokemonData);
-});
+searchBar.addEventListener ('keyup', search);
 
+function search (e) {
+    pokemonData = pokemonDataConst;
+    pokemonData = DataFunctions.filterByName(pokemonData, e.target.value);
+    showData(pokemonData);
+}
 
                             // SECTION: SORT BY
 
@@ -286,23 +294,7 @@ function sortByLetter() {
 }
 
 
-/*      en comentarios hasta seguir probando 
-//Filter-menu
-document.getElementById("type-phone").addEventListener("click", function () {
-    document.querySelector('.modal-content').style.display = 'flex';
-});
-
-
-function filterData() {
-    document.querySelector('.modal-content').style.display = 'none';
-    pokemonData = pokemonDataConst;
-    pokemonData = DataFunctions.filterData(pokemonData, btnFilterPhone.value);
-    showData(pokemonData);
-} */
-
-
-//Tarjeta del pokémon a la que luego se le hará clic. Revisar en que momento se puede llamar. window onload.
-
+//Botón cerrar Card-Modal
 const closeMoreData = document.getElementById("closeModal");
 closeMoreData.addEventListener("click", () => moreDataModal.classList.add("hidden"));
 
@@ -317,3 +309,89 @@ function showMoreData(e) {
     contentMoreDataModal.innerHTML = ` ${e.currentTarget.innerHTML} ${e.currentTarget.nextElementSibling.innerHTML} `;
 }
 
+//BATALLA
+const versusBtnPc = document.getElementById("btn-versus-pc");
+const versusBtnPhone = document.getElementById("btn-versus-phone");
+const versusDisplay = document.getElementById("versus-content");
+
+versusBtnPc.addEventListener("click", showVersus);
+versusBtnPhone.addEventListener("click", showVersus);
+
+function showVersus () {
+    home.innerHTML = "";
+    sortBySection.classList.add("hidden");
+    versusDisplay.style.display = "flex";
+}
+
+//input-versus
+searchMine.addEventListener ('keyup', searchVersus);
+searchOpp.addEventListener ('keyup', searchVersus2);
+
+function searchVersus (e) {
+    let suggestions = pokemonDataConst;
+    const input = searchMine.value;
+    suggestionsPanel.innerHTML='';
+    if (input === ''){
+        suggestionsPanel.innerHTML='';
+    } else {
+        suggestions = DataFunctions.filterByName(suggestions, e.target.value); 
+        
+        suggestions.forEach(function(e){
+        const div = document.createElement('div');
+        div.innerHTML=e.name;
+        suggestionsPanel.appendChild(div);
+        /*div.setAttribute('id', e.num);*/
+
+        /*div.forEach((i) => i.addEventListener('click', (e) => pokemonTemplate(e)));*/
+        
+        const versusCard = document.querySelector('.versus-card');
+        versusCard.innerHTML = `
+        <div class="pokemon-card-versus">
+            <h2>${e.name}</h2>
+            <img class="pokemon-img" src="${e.img}">
+            <h3>Type</h3>
+            ${typesList(e.type)}
+            <h3>Resistant</h3>
+            ${typesList(e.resistant)}
+            <h3>Weaknesses</h3>
+            ${typesList(e.weaknesses)}
+        </div>
+        `
+        });
+    };
+}
+
+
+function searchVersus2 (e) {
+    let suggestions = pokemonDataConst;
+    const input = searchOpp.value;
+    suggestionsPanel2.innerHTML='';
+    if (input === ''){
+        suggestionsPanel2.innerHTML='';
+    } else {
+        suggestions = DataFunctions.filterByName(suggestions, e.target.value); 
+        
+        suggestions.forEach(function(e){
+        const div = document.createElement('div');
+        div.innerHTML=e.name;
+        suggestionsPanel2.appendChild(div);
+        div.setAttribute('id', e.num);
+
+        /*div.forEach((i) => i.addEventListener('click', (e) => pokemonTemplate(e)));*/
+        
+        const versusCard = document.querySelector('.versus-card2');
+        versusCard.innerHTML = `
+        <div class="pokemon-card-versus">
+            <h2>${e.name}</h2>
+            <img class="pokemon-img" src="${e.img}">
+            <h3>Type</h3>
+            ${typesList(e.type)}
+            <h3>Resistant</h3>
+            ${typesList(e.resistant)}
+            <h3>Weaknesses</h3>
+            ${typesList(e.weaknesses)}
+        </div>
+        `
+        });
+    };
+}
