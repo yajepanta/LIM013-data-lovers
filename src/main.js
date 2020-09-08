@@ -268,8 +268,15 @@ function filterData() {
     pokemonData = DataFunctions.filterData(pokemonData, btnFilterPhone.value);
 
     boxType.style.display = 'flex';
-    nameType.innerHTML = btnFilterPhone.value.toUpperCase();
+    const percentage= (pokemonData.length)/251*100;
+    nameType.innerHTML = btnFilterPhone.value.toUpperCase() + ' (' + percentage.toFixed(2) + '% of Total)';
     showData(pokemonData);
+    /*
+    function countData(data) {
+        countBox.innerHTML = `${data.length} of 251 pokémons`;
+    }
+    */
+
     sortBySection.classList.remove("hidden");
     versusDisplay.style.display = 'none';
 
@@ -280,7 +287,7 @@ searchBar.addEventListener('keyup', (e) => {
     pokemonData = pokemonDataConst;
     pokemonData = DataFunctions.filterByName(pokemonData, e.target.value.toLowerCase());
     showData(pokemonData);
-}
+});
 
 // SECTION: SORT BY
 
