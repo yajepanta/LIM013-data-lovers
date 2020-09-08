@@ -226,6 +226,7 @@ function dataHome(){
     showData(pokemonData);
     boxType.style.display = 'none';
     sortBySection.classList.remove("hidden");
+    versusDisplay.style.display = 'none';
 }
 
 //FUNCIÓN FILTRAR POR TIPO
@@ -250,6 +251,8 @@ function filterData () {
     nameType.innerHTML = btnFilterPhone.value.toUpperCase() ;
     showData(pokemonData);
     sortBySection.classList.remove("hidden");
+    versusDisplay.style.display = 'none';
+
 }
 
 //searchBar
@@ -320,6 +323,7 @@ versusBtnPhone.addEventListener("click", showVersus);
 function showVersus () {
     home.innerHTML = "";
     sortBySection.classList.add("hidden");
+    boxType.style.display = 'none';
     versusDisplay.style.display = "flex";
 }
 
