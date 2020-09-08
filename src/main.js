@@ -8,14 +8,20 @@ let pokemonData = pokemonDataConst.slice();
 const home = document.getElementById("home-index");
 const countBox = document.querySelector(".sortBy span");
 const btnHome = document.getElementById("btn-home-phone");
-const btnInicio = document.getElementById("btn-home-pc");
+const btnHomePc = document.getElementById("btn-home-pc");
 const btnFilterPc = document.getElementById("btn-type-pc");
 const btnFilterPhone = document.getElementById("btn-type-phone");
+const sortBySection = document.getElementById("sort-by");
 const btnSortByNumber = document.getElementById("btn-sort-number");
 const btnSortByLetter = document.getElementById("btn-sort-letter");
 const nameType = document.getElementById("type-name");
 const boxType = document.getElementById("type-box");
 const searchBar = document.getElementById("search");
+
+const searchMine = document.getElementById('search-mine');
+const searchOpp = document.getElementById('search-opponent');
+const suggestionsPanel = document.querySelector('.suggestions-panel');
+const suggestionsPanel2 = document.querySelector('.suggestions-panel2');
 
 //CONTEO DE ARRAYS
 function countData(data) {
@@ -24,7 +30,6 @@ function countData(data) {
 
 //función que muestra los pokemones
 function showData(data) {
-    //Convertir a string "pokemonTemplate"
     home.innerHTML = `${data.map(pokemonTemplate).join('')}`;
     countData(data);
     //Tarjeta del pokémon a la que luego se le hará clic.
@@ -234,12 +239,14 @@ function pokemonTemplate(pokemon) {
 
 //botón HOME
 btnHome.addEventListener("click", dataHome);
-btnInicio.addEventListener("click", dataHome);
+btnHomePc.addEventListener("click", dataHome);
 
 function dataHome() {
     pokemonData = pokemonDataConst;
     showData(pokemonData);
     boxType.style.display = 'none';
+    sortBySection.classList.remove("hidden");
+    versusDisplay.style.display = 'none';
 }
 
 //FUNCIÓN FILTRAR POR TIPO
@@ -263,6 +270,9 @@ function filterData() {
     boxType.style.display = 'flex';
     nameType.innerHTML = btnFilterPhone.value.toUpperCase();
     showData(pokemonData);
+    sortBySection.classList.remove("hidden");
+    versusDisplay.style.display = 'none';
+
 }
 
 //searchBar. lE AGREGUÉ .toLowerCase() para que busque sea mayu o min
@@ -270,8 +280,7 @@ searchBar.addEventListener('keyup', (e) => {
     pokemonData = pokemonDataConst;
     pokemonData = DataFunctions.filterByName(pokemonData, e.target.value.toLowerCase());
     showData(pokemonData);
-});
-
+}
 
 // SECTION: SORT BY
 
@@ -305,8 +314,8 @@ function sortByLetter() {
     }
 }
 
-//Tarjeta del pokémon a la que luego se le hará clic. Revisar en que momento se puede llamar. 
 
+//Botón cerrar Card-Modal
 const closeMoreData = document.getElementById("closeModal");
 closeMoreData.addEventListener("click", () => moreDataModal.classList.add("hidden"));
 
@@ -314,11 +323,95 @@ const moreDataModal = document.getElementById("moreDataModal");
 const contentMoreDataModal = document.getElementById("contentMoreDataModal");
 
 function showMoreData(e) {
-
     moreDataModal.classList.remove("hidden");
     moreDataModal.classList.add("moreDataModal");
-
-
     contentMoreDataModal.innerHTML = ` <div class="pokemon-card-modal-top">${e.currentTarget.innerHTML}</div> ${e.currentTarget.nextElementSibling.innerHTML} `;
 }
 
+//BATALLA
+const versusBtnPc = document.getElementById("btn-versus-pc");
+const versusBtnPhone = document.getElementById("btn-versus-phone");
+const versusDisplay = document.getElementById("versus-content");
+
+versusBtnPc.addEventListener("click", showVersus);
+versusBtnPhone.addEventListener("click", showVersus);
+
+function showVersus () {
+    home.innerHTML = "";
+    sortBySection.classList.add("hidden");
+    boxType.style.display = 'none';
+    versusDisplay.style.display = "flex";
+}
+
+//input-versus
+searchMine.addEventListener ('keyup', searchVersus);
+searchOpp.addEventListener ('keyup', searchVersus2);
+
+function searchVersus (e) {
+    let suggestions = pokemonDataConst;
+    const input = searchMine.value;
+    suggestionsPanel.innerHTML='';
+    if (input === ''){
+        suggestionsPanel.innerHTML='';
+    } else {
+        suggestions = DataFunctions.filterByName(suggestions, e.target.value); 
+        
+        suggestions.forEach(function(e){
+        const div = document.createElement('div');
+        div.innerHTML=e.name;
+        suggestionsPanel.appendChild(div);
+        /*div.setAttribute('id', e.num);*/
+
+        /*div.forEach((i) => i.addEventListener('click', (e) => pokemonTemplate(e)));*/
+        
+        const versusCard = document.querySelector('.versus-card');
+        versusCard.innerHTML = `
+        <div class="pokemon-card-versus">
+            <h2>${e.name}</h2>
+            <img class="pokemon-img" src="${e.img}">
+            <h3>Type</h3>
+            ${typesList(e.type)}
+            <h3>Resistant</h3>
+            ${typesList(e.resistant)}
+            <h3>Weaknesses</h3>
+            ${typesList(e.weaknesses)}
+        </div>
+        `
+        });
+    };
+}
+
+
+function searchVersus2 (e) {
+    let suggestions = pokemonDataConst;
+    const input = searchOpp.value;
+    suggestionsPanel2.innerHTML='';
+    if (input === ''){
+        suggestionsPanel2.innerHTML='';
+    } else {
+        suggestions = DataFunctions.filterByName(suggestions, e.target.value); 
+        
+        suggestions.forEach(function(e){
+        const div = document.createElement('div');
+        div.innerHTML=e.name;
+        suggestionsPanel2.appendChild(div);
+        div.setAttribute('id', e.num);
+
+        /*div.forEach((i) => i.addEventListener('click', (e) => pokemonTemplate(e)));*/
+        
+        const versusCard = document.querySelector('.versus-card2');
+        versusCard.innerHTML = `
+        <div class="pokemon-card-versus">
+            <h2>${e.name}</h2>
+            <img class="pokemon-img" src="${e.img}">
+            <h3>Type</h3>
+            ${typesList(e.type)}
+            <h3>Resistant</h3>
+            ${typesList(e.resistant)}
+            <h3>Weaknesses</h3>
+            ${typesList(e.weaknesses)}
+        </div>
+        `
+        });
+    };
+}
