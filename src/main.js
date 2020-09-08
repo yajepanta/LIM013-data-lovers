@@ -14,7 +14,7 @@ const btnFilterPhone = document.getElementById("btn-type-phone");
 const sortBySection = document.getElementById("sort-by");
 const btnSortByNumber = document.getElementById("btn-sort-number");
 const btnSortByLetter = document.getElementById("btn-sort-letter");
-const nameType= document.getElementById("type-name");
+const nameType = document.getElementById("type-name");
 const boxType = document.getElementById("type-box");
 const searchBar = document.getElementById("search");
 
@@ -22,7 +22,6 @@ const searchMine = document.getElementById('search-mine');
 const searchOpp = document.getElementById('search-opponent');
 const suggestionsPanel = document.querySelector('.suggestions-panel');
 const suggestionsPanel2 = document.querySelector('.suggestions-panel2');
-
 
 //CONTEO DE ARRAYS
 function countData(data) {
@@ -38,7 +37,7 @@ function showData(data) {
     pokemonCard.forEach((i) => i.addEventListener('click', (e) => showMoreData(e)));
 }
 
-//ShowData ejecuta la función al cargar la página. Para mostrar los pk con la data original
+//showData ejecuta la función al cargar la página. Para mostrar los pk con la data original
 showData(pokemonDataConst);
 
 function typesList(type) {
@@ -46,7 +45,7 @@ function typesList(type) {
         <ul class="poke-types">
             ${type.map((type) => {
         return `<li class="poke-list">${type}</li>`;
-                }).join('')}
+    }).join('')}
         </ul>
         `;
 }
@@ -56,7 +55,7 @@ function attackList(pokemon) {
         <ul class="poke-types" >
             ${pokemon.map((attack) => {
         return `<li class="poke-list">${attack.name}</li>`;
-                }).join('')}
+    }).join('')}
         </ul>
         `;
 }
@@ -80,19 +79,26 @@ function prevEvolution(pokemon) {
         const prevevolution = pokemon.evolution["prev-evolution"];
         const numevolution = prevevolution[0].num;
         const nameevolution = prevevolution[0].name;
-        const candycost = prevevolution["candy-cost"];
-
+        const candycost = prevevolution[0]["candy-cost"];
+        let evolution = pokemonDataConst.filter((pokemon) => pokemon.name === nameevolution);
+        evolution[0] !== undefined ? evolution = evolution[0].img : evolution = "";
+       
         if (pokemon.evolution["prev-evolution"][0]["prev-evolution"] !== undefined) {
             const prevevolution2 = pokemon.evolution["prev-evolution"][0]["prev-evolution"];
             const numevolution2 = prevevolution2[0].num;
             const nameevolution2 = prevevolution2[0].name;
             const candycost2 = prevevolution2[0]["candy-cost"];
+            let evolution2 = pokemonDataConst.filter((pokemon) => pokemon.name === nameevolution2);
+            evolution2[0] !== undefined ? evolution2 = evolution2[0].img : evolution2 = "";
+
+            
 
             return `
             <div class="evolution-card">
                 <ul class="poke-types">
                     <li>${numevolution} </li>
                     <li>${nameevolution} </li>
+                    <img src="${evolution}">
                     <li>${candycost} candies </li>
                 </ul>
             </div>
@@ -100,6 +106,7 @@ function prevEvolution(pokemon) {
                 <ul class="poke-types">
                     <li>${numevolution2} </li>
                     <li>${nameevolution2} </li>
+                    <img src="${evolution2}">
                     <li>${candycost2} candies </li>
                 </ul>
             </div>
@@ -111,6 +118,7 @@ function prevEvolution(pokemon) {
         <ul class="poke-types">
             <li>${numevolution} </li>
             <li>${nameevolution} </li>
+            <img src="${evolution}">
             <li>${candycost} candies </li>
         </ul>
     </div>
@@ -131,6 +139,8 @@ function nextEvolution(pokemon) {
         const numevolution = nextevolution[0].num;
         const nameevolution = nextevolution[0].name;
         const candycost = nextevolution[0]["candy-cost"];
+        let evolution = pokemonDataConst.filter((pokemon) => pokemon.name === nameevolution);
+        evolution[0] !== undefined ? evolution = evolution[0].img : evolution = "";
 
 
         if (pokemon.evolution["next-evolution"][0]["next-evolution"] !== undefined) {
@@ -138,49 +148,58 @@ function nextEvolution(pokemon) {
             const numevolution2 = nextevolution2[0].num;
             const nameevolution2 = nextevolution2[0].name;
             const candycost2 = nextevolution2[0]["candy-cost"];
+            let evolution2 = pokemonDataConst.filter((pokemon) => pokemon.name === nameevolution2);
+            evolution2[0] !== undefined ? evolution2 = evolution2[0].img : evolution2 = "";
 
             return `
-                <div class="evolution-card">
+                <div class="evolution-card">      
                     <ul class="poke-types">
                         <li>${numevolution} </li>
-                        <li>${nameevolution} </li>             
+                        <li>${nameevolution} </li> 
+                        <img src="${evolution}">           
                         <li>${candycost} candies </li>
                     </ul>
                 </div>
-                <div class="evolution-card">
+                <div class="evolution-card">                   
                     <ul class="poke-types">
                         <li>${numevolution2} </li>
                         <li>${nameevolution2} </li>
+                        <img src="${evolution2}">
                         <li>${candycost2} candies </li>
                     </ul>
                 </div>
                 `;
         }
 
-    return `
+        return `
             <div class="evolution-card">
                 <ul class="poke-types">
                     <li>${numevolution} </li>
                     <li>${nameevolution} </li>
+                    <img src="${evolution}">
                     <li>${candycost} candies </li>
                 </ul>
             </div>
                 `;
+
     }
 
     else {
         return ``;
     }
+
 }
 
 function pokemonTemplate(pokemon) {
-
+    /* le quite id a pokemon card, porque solo necesita clase */
     return `
-        <div class="pokemon-card" id="pokemon-card">
-            <p>${pokemon.num}</p>
-            <h2>${pokemon.name.toUpperCase()}</h2>
+        <div class="pokemon-card">
+            <div> <p>${pokemon.num}</p>
+            <h2>${pokemon.name}</h2>
             <img class="pokemon-img" src="${pokemon.img}">
-            ${typesList(pokemon.type)}
+            </div>
+
+            <div class="types">${typesList(pokemon.type)} </div>
         </div>
 
         <div class="pokemon-card-modal hidden">
@@ -199,18 +218,19 @@ function pokemonTemplate(pokemon) {
             <div>
             <h3>Quick moves</h3>   
             ${attackList(pokemon["quick-move"])}
-                <div class="evolution"><label>Evolution</label>
-                    ${evolutionList(pokemon)}
-                    
-                        <ul class="poke-types">
-                            <li class="poke-list"> ${pokemon["buddy-distance-km"]} eggs</li>
-                        </ul>
+            </div>
 
-                    <div class="evolution-container">           
-                        ${prevEvolution(pokemon)}
-                        ${nextEvolution(pokemon)}     
-                    </div>  
-                </div>   
+            <div><h3>Evolution</h3>
+                <div class="evolution">
+                    ${evolutionList(pokemon)} 
+                    <ul class="poke-types">
+                        <li class="poke-list"> ${pokemon["buddy-distance-km"]} eggs</li>
+                    </ul>
+                </div>
+                <div class="evolution-container">           
+                    ${prevEvolution(pokemon)}
+                    ${nextEvolution(pokemon)}     
+                </div>    
             </div>      
         </div> `
 }
@@ -221,7 +241,7 @@ function pokemonTemplate(pokemon) {
 btnHome.addEventListener("click", dataHome);
 btnHomePc.addEventListener("click", dataHome);
 
-function dataHome(){
+function dataHome() {
     pokemonData = pokemonDataConst;
     showData(pokemonData);
     boxType.style.display = 'none';
@@ -230,41 +250,39 @@ function dataHome(){
 }
 
 //FUNCIÓN FILTRAR POR TIPO
-document.getElementById("type-phone").addEventListener("click", function (){
-    document.querySelector('.modal-content').style.display ='flex';
+document.getElementById("type-phone").addEventListener("click", function () {
+    document.querySelector('.modal-content').style.display = 'flex';
 });
 
-document.getElementById("btn-type-pc").addEventListener("click", function (){
-    document.querySelector('.modal-content').style.display ='flex';
+document.getElementById("btn-type-pc").addEventListener("click", function () {
+    document.querySelector('.modal-content').style.display = 'flex';
 });
 
 btnFilterPhone.addEventListener("change", filterData);
 btnFilterPc.addEventListener("change", filterData);
 
-function filterData () {
-    document.querySelector('.modal-content').style.display ='none';
+function filterData() {
+    document.querySelector('.modal-content').style.display = 'none';
 
     pokemonData = pokemonDataConst;
     pokemonData = DataFunctions.filterData(pokemonData, btnFilterPhone.value);
-    
+
     boxType.style.display = 'flex';
-    nameType.innerHTML = btnFilterPhone.value.toUpperCase() ;
+    nameType.innerHTML = btnFilterPhone.value.toUpperCase();
     showData(pokemonData);
     sortBySection.classList.remove("hidden");
     versusDisplay.style.display = 'none';
 
 }
 
-//searchBar
-searchBar.addEventListener ('keyup', search);
-
-function search (e) {
+//searchBar. lE AGREGUÉ .toLowerCase() para que busque sea mayu o min
+searchBar.addEventListener('keyup', (e) => {
     pokemonData = pokemonDataConst;
-    pokemonData = DataFunctions.filterByName(pokemonData, e.target.value);
+    pokemonData = DataFunctions.filterByName(pokemonData, e.target.value.toLowerCase());
     showData(pokemonData);
 }
 
-                            // SECTION: SORT BY
+// SECTION: SORT BY
 
 
 // sortByNumber
@@ -305,11 +323,9 @@ const moreDataModal = document.getElementById("moreDataModal");
 const contentMoreDataModal = document.getElementById("contentMoreDataModal");
 
 function showMoreData(e) {
-
     moreDataModal.classList.remove("hidden");
-    moreDataModal.classList.add("moreData");
-
-    contentMoreDataModal.innerHTML = ` ${e.currentTarget.innerHTML} ${e.currentTarget.nextElementSibling.innerHTML} `;
+    moreDataModal.classList.add("moreDataModal");
+    contentMoreDataModal.innerHTML = ` <div class="pokemon-card-modal-top">${e.currentTarget.innerHTML}</div> ${e.currentTarget.nextElementSibling.innerHTML} `;
 }
 
 //BATALLA
