@@ -1,4 +1,19 @@
 # DATA-LOVERS: POKÉMON
+![](imag/header.jpg)
+
+## Producto final
+
+
+## Definición del Producto
+
+#### ¿Quiénes son los usuarios?
+Usuarios jugadores de PokemonGO, con conocimiento medio del juego (no principiantes).
+
+#### ¿Cómo el producto soluciona las necesidades del usuario?
+Nuestro producto da información que el jugador de POkemonGO necesita para completar su Pokedex y ganar en batallas Pokemon, todo en una misma págia web intuitiva y fácil de manejar.
+
+#### Objetivos del producto
+Ser fuente de información, útil y concisa para los usuarios jugadores de PokemonGO.
 
 ## Investigación de usuarios
 
@@ -112,7 +127,7 @@ Luego, se diseñó un sistema de flujo por el cual el usuario observaría el sit
 ![](imag/protBAJA.jpg)
 
 
-TESTS CON USUARIOS
+### TESTS CON USUARIOS
 * La barra de navegación no era clara pues consistía en 2 filas. Una con el botón menu y el buscador, y otra debajo con los botones de filtrado. Se consideraba que no había jerarquía, y era confuso si se podía o no seleccionar solo 1 a la vez, o si se podía hacer click a todos.
 * Se comentó que no era necesario tener un ícono de "home" y otro de "menú", sino que se decidiera por uno solo de menú, o se pusieran los botones de las diferentes ventanas uno al lado del otro.
 * La idea de colocar una tarjeta a la vez en la pantalla móvil fue bien recibida, pues era fácil de visualizar y no agobiaban visualmente al usuario.
@@ -135,7 +150,7 @@ Se tomaron en cuenta las opiniones de los usuarios y se decidió:
 ![](imag/protphone.png)
 ![](imag/protphone2.png)
 
-## HISTORIAS
+## Implementación de la interfaz de usuario
 
 ### Historia 1
 Yo, como jugador avanzado de pokemonGO, quiero visualizar los pokemons por número (1-9) y de menor a mayor, para encontrarlos fácilmente.
