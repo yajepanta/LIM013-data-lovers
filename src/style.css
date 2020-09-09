@@ -144,114 +144,141 @@ main {
     background: rgba(224, 220, 220, 0.75);
   }
   
-  .pokemon-card img:hover {
+  .pokemon-card img:hover, .contentMoreDataModal img:hover{
     transform: scaleX(-1);
   }
-  /* Ventana Modal */
-.moreDataModal {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  width: 85vw;
-  height: 955px;
-  padding: 15px;
-  /* background: rgba(255, 255, 255, 0.75); */
-  background: rgba(255, 255, 255, 0.9);
-  text-align: center;
-  font-weight: bold;
-  color: black;
-  border-radius: 5px;
-}
-
-.closeModal {
-  position: absolute;
-  top: 0;
-  right: 14px;
-  font-size: 42px;
-  transform: rotate(45deg);
-  cursor: pointer;
-  color: gray;
-}
-
-.pokemon-card-modal{
-  display: flex;
-  flex-direction: column;
-  /* justify-content: left; */
-  align-items: center;
-}
 
 /* UL - elimina el padding que estaba al costado de cada <ul> */
 .poke-types {
   padding: 0px;
+  margin: 0px;
   list-style-type:none;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   }
 
 /* formato de las viñetas LI*/
-.poke-list {
-  margin:3px;
-  padding: 5px;
-  color: #000;
-  background: #969696;
-  border-radius: 5px;
-  font-weight: bold;
-  }
-
-  /* Parte superior de la ventana modal (num, nom, img y tipos) */
-.pokemon-card-modal-top {
-  display: flex; 
-  justify-content: space-between;
-  color: white;
-}
-  /* nombre, número e imagen */
-  .pokemon-card-modal-top div:first-child {
-    display: flex; 
-    flex-direction: column;
-    background: #14133A;
+  .poke-list {
+    margin:3px;
     padding: 5px;
+    color: #000;
+    background: #969696;
     border-radius: 5px;
-  }
-    /* elementos de manera individual para darles margen */
-    .pokemon-card-modal-top div:first-child > p, .pokemon-card-modal-top div:first-child > h2 {
-      margin-left: -100px;
+    font-weight: bold;
     }
-    .pokemon-card-modal-top div:first-child img {
-      margin-left: 120px;
-      margin-top: -120px;
-    }
-
-    /* lista con los tipos */
-  .pokemon-card-modal-top ul{
-    flex-direction: column;
-  }
-
-/* Ventana Modal. Sección de evolución */
-.evolution {
+  /* Fondo de la Ventana Modal */
+.moreDataModal {
+  position: fixed;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-/* contiene a las cards de las evoluciones */
-  .evolution-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
   }
-    /* contiene a las cards de las evoluciones individualmente */
-    .evolution-card{
-      background: #14133A;
-      color: white;
-      justify-content: center;
-      border-radius: 5px;
-      padding: 15px;
-    }
 
-      /* las listas dentro de las tarjetas individuales */
-      .evolution-card  > ul{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+  .closeModal {
+    position: absolute;
+    top: 0;
+    left: 350px;
+    font-size: 42px;
+    transform: rotate(45deg);
+    cursor: pointer;
+    color: black;
+  }
+
+/* Contenido de la Ventana Modal (tarjeta pokémon) */
+  .contentMoreDataModal {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    height: 955px;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+    .pokemon-card-modal{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       }
+      /* títulos dentro de la ventana modal */
+      .pokemon-card-modal  > div  > h3 {
+        margin: 5px;
+      }
+
+      /* Parte superior de la ventana modal (num, nom, img y tipos) */
+    .pokemon-card-modal-top {
+      display: flex; 
+      justify-content: space-around;
+      align-items: center;
+      color: white;
+      }
+        /* nombre, número e imagen */
+      .pokemon-card-modal-top div:first-child {
+        display: flex; 
+        flex-direction: column;
+        background: #14133A;
+        font-size: 14px;
+        padding: 15px;
+        border-radius: 5px;
+      }
+        /* elementos de manera individual para darles margen */
+        .pokemon-card-modal-top div:first-child > p, .pokemon-card-modal-top div:first-child > h2 {
+          margin-left: -150px;
+        }
+        .pokemon-card-modal-top div:first-child img {
+          margin-left: 110px;
+          margin-top: -120px;
+        }
+
+        /* lista con los tipos */
+      .pokemon-card-modal-top ul{
+        flex-direction: column;
+      }
+
+    /* Ventana Modal. Sección de evolución */
+    .evolution {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    /* contiene a las cards de las evoluciones */
+      .evolution-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+        /* contiene a las cards de las evoluciones individualmente */
+        .evolution-card{
+          background: #14133A;
+          color: white;
+          justify-content: center;
+          border-radius: 5px;
+          padding: 8px;
+          width: 140px;
+          margin-top: 10px;
+        }
+          /* las listas dentro de las tarjetas individuales */
+          .evolution-card  > ul{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .evolution-img {
+            height: 90px;
+            width: 90px;
+          }
 /* modal con los tipos */
 .modal-content {
    width: 350px;
@@ -412,7 +439,6 @@ input {
   margin: 20px;
   background: rgba(255, 255, 255, 0.75);
   border-radius: 5px;
- /*  overflow: hidden; */
   text-align: center;
   }
 
@@ -469,57 +495,150 @@ input {
       right: -480px;
     }
 
-  .moreDataModal {
-      width: 30vw;
+.moreDataModal {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+  }
+  
+  .closeModal {
+    position: absolute;
+    top: 0;
+    left: 900px;
+    font-size: 42px;
+    transform: rotate(45deg);
+    cursor: pointer;
+    color: black;
+  }
+  .contentMoreDataModal {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    font-weight: bold;
+    color: black;
+    border-radius: 5px;
+  }
+
+    .pokemon-card-modal{
+      display: grid;
+      grid-template-columns: 250px 250px ;
+      justify-content: space-around;
+      text-align: center;
+      align-items: flex-start;
     }
 
+      .pokemon-card-modal  > div  > h3 {
+        margin: 20px;
+      }
+
+      /* nombre, número e imagen y tipos dentro de ventana modal */
+    .pokemon-card-modal-top {
+      display: flex; 
+      justify-content: space-around;;
+    }  
+      /* nombre, número e imagen dentro de ventana modal*/
+      .pokemon-card-modal-top div:first-child {
+        display: flex; 
+        flex-direction: column;
+        background: #14133A;
+        padding: 20px;
+        border-radius: 5px;
+      }
+
+        .pokemon-card-modal-top div:first-child > p, .pokemon-card-modal-top div:first-child > h2 {
+          margin-left: -120px;
+        }
+        .pokemon-card-modal-top div:first-child img {
+          margin-left: 120px;
+          margin-top: -120px;
+        }
+    /* Contiene a las evoluciones más el nro de huevos (evolution y evolution container)*/
+    .contentMoreDataModal > div:nth-child(3){
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 15px;
+    }
+    
+    .evolution {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+      /* Lista con el número de huevos / kilómetros */
+      .evolution > ul  {
+          height: 15px;
+      }
+    /* Tarjeta con la evolución */  
+    .evolution-container{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 350px;
+      margin-left:15px;
+    }
+   
+    .hidden {
+      display: none;
+    }    
+
 }
+
 @media screen and (max-width: 500px)  { 
   header {
     justify-content: center;
   }
 
-  .btn-nav-phone  {
-    display: flex;
-    margin-left: 0;
-    margin-right:0;
+    .btn-nav-phone  {
+      display: flex;
+      margin-left: 0;
+      margin-right:0;
+      }
+
+    .nav-phone {
+      display: flex;
+      justify-content: center;
     }
 
-  .nav-phone {
-    display: flex;
-    justify-content: center;
-  }
+    .btn-nav-pc {
+      display: none;
+      }
 
-  .btn-nav-pc {
-    display: none;
+    form {
+      order: 0;
+      width: 200px;
+      justify-content: center;
+      }
+
+    .index{
+          display: grid;
+          grid-template-columns: 250px;
+          }
+
+    input {
+      height: 40px;
+      width: 250px;
+      position: relative;
+      top: 0px;
+      right: -27px;
+      padding:0;
+      margin:0;
     }
 
-  form {
-    order: 0;
-    width: 200px;
-    
-    justify-content: center;
-    }
-
-  .index{
-        display: grid;
-        grid-template-columns: 250px;
-        }
-
-  input {
-    height: 40px;
-    width: 250px;
-    position: relative;
-    top: 0px;
-    right: -27px;
-    padding:0;
-    margin:0;
-  }
-
-  .btn-search-img {
-    left: -10px;
-    top: -12px;
-    }
+    .btn-search-img {
+      left: -10px;
+      top: -12px;
+      }
   
 
   .modal-dropdown {
@@ -566,5 +685,6 @@ input {
   .versusBox {
     width: 400px;
   }
+
 }
 

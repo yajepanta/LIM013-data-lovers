@@ -98,7 +98,7 @@ function prevEvolution(pokemon) {
                 <ul class="poke-types">
                     <li>${numevolution} </li>
                     <li>${nameevolution} </li>
-                    <img src="${evolution}">
+                    <img class="evolution-img" src="${evolution}">
                     <li>${candycost} candies </li>
                 </ul>
             </div>
@@ -106,7 +106,7 @@ function prevEvolution(pokemon) {
                 <ul class="poke-types">
                     <li>${numevolution2} </li>
                     <li>${nameevolution2} </li>
-                    <img src="${evolution2}">
+                    <img class="evolution-img" src="${evolution2}">
                     <li>${candycost2} candies </li>
                 </ul>
             </div>
@@ -118,7 +118,7 @@ function prevEvolution(pokemon) {
         <ul class="poke-types">
             <li>${numevolution} </li>
             <li>${nameevolution} </li>
-            <img src="${evolution}">
+            <img class="evolution-img" src="${evolution}">
             <li>${candycost} candies </li>
         </ul>
     </div>
@@ -156,7 +156,7 @@ function nextEvolution(pokemon) {
                     <ul class="poke-types">
                         <li>${numevolution} </li>
                         <li>${nameevolution} </li> 
-                        <img src="${evolution}">           
+                        <img  class="evolution-img" src="${evolution}">           
                         <li>${candycost} candies </li>
                     </ul>
                 </div>
@@ -164,7 +164,7 @@ function nextEvolution(pokemon) {
                     <ul class="poke-types">
                         <li>${numevolution2} </li>
                         <li>${nameevolution2} </li>
-                        <img src="${evolution2}">
+                        <img class="evolution-img" src="${evolution2}">
                         <li>${candycost2} candies </li>
                     </ul>
                 </div>
@@ -176,7 +176,7 @@ function nextEvolution(pokemon) {
                 <ul class="poke-types">
                     <li>${numevolution} </li>
                     <li>${nameevolution} </li>
-                    <img src="${evolution}">
+                    <img class="evolution-img" src="${evolution}">
                     <li>${candycost} candies </li>
                 </ul>
             </div>
@@ -191,7 +191,7 @@ function nextEvolution(pokemon) {
 }
 
 function pokemonTemplate(pokemon) {
-    /* le quite id a pokemon card, porque solo necesita clase */
+
     return `
         <div class="pokemon-card">
             <div> <p>${pokemon.num}</p>
@@ -202,25 +202,27 @@ function pokemonTemplate(pokemon) {
             <div class="types">${typesList(pokemon.type)} </div>
         </div>
 
-        <div class="pokemon-card-modal hidden">
-            <div>
-            <h3>Resistant</h3>
-            ${typesList(pokemon.resistant)}
+        <div class="hidden">
+            <div class="pokemon-card-modal">
+                <div>
+                <h3>Resistant</h3>
+                ${typesList(pokemon.resistant)}
+                </div>
+                <div>
+                <h3>Weaknesses</h3>
+                ${typesList(pokemon.weaknesses)}
+                </div>
+                <div>
+                <h3>Special attacks</h3>   
+                ${attackList(pokemon["special-attack"])}
+                </div>
+                <div>
+                <h3>Quick moves</h3>   
+                ${attackList(pokemon["quick-move"])}
+                </div>
             </div>
             <div>
-            <h3>Weaknesses</h3>
-            ${typesList(pokemon.weaknesses)}
-            </div>
-            <div>
-            <h3>Special attacks</h3>   
-            ${attackList(pokemon["special-attack"])}
-            </div>
-            <div>
-            <h3>Quick moves</h3>   
-            ${attackList(pokemon["quick-move"])}
-            </div>
-
-            <div><h3>Evolution</h3>
+                <h3>Evolution</h3>
                 <div class="evolution">
                     ${evolutionList(pokemon)} 
                     <ul class="poke-types">
@@ -280,7 +282,7 @@ searchBar.addEventListener('keyup', (e) => {
     pokemonData = pokemonDataConst;
     pokemonData = DataFunctions.filterByName(pokemonData, e.target.value.toLowerCase());
     showData(pokemonData);
-}
+});
 
 // SECTION: SORT BY
 
@@ -315,19 +317,25 @@ function sortByLetter() {
 }
 
 
-//Botón cerrar Card-Modal
-const closeMoreData = document.getElementById("closeModal");
-closeMoreData.addEventListener("click", () => moreDataModal.classList.add("hidden"));
 
 const moreDataModal = document.getElementById("moreDataModal");
 const contentMoreDataModal = document.getElementById("contentMoreDataModal");
 
+//Botón cerrar Card-Modal
+const closeMoreData = document.getElementById("closeModal");
+closeMoreData.addEventListener("click", () => moreDataModal.classList.add("hidden"));
+
+moreDataModal.addEventListener("click", (e) => e.target.id === "moreDataModal" ? moreDataModal.classList.add("hidden") : "" );
+
 function showMoreData(e) {
+
     moreDataModal.classList.remove("hidden");
     moreDataModal.classList.add("moreDataModal");
+    
+    contentMoreDataModal.classList.add("contentMoreDataModal");
     contentMoreDataModal.innerHTML = ` <div class="pokemon-card-modal-top">${e.currentTarget.innerHTML}</div> ${e.currentTarget.nextElementSibling.innerHTML} `;
+    
 }
-
 //BATALLA
 const versusBtnPc = document.getElementById("btn-versus-pc");
 const versusBtnPhone = document.getElementById("btn-versus-phone");
@@ -378,7 +386,7 @@ function searchVersus (e) {
         </div>
         `
         });
-    };
+    }
 }
 
 
@@ -413,5 +421,5 @@ function searchVersus2 (e) {
         </div>
         `
         });
-    };
+    }
 }
