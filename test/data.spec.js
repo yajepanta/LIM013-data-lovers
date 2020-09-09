@@ -1,4 +1,4 @@
-import { sortDataByDescNumber, sortDataByAscNumber, sortDataByLetA, sortDataByLetZ,filterData} from '../src/data.js';
+import {sortDataByDescNumber, sortDataByAscNumber, sortDataByLetA, sortDataByLetZ,filterData} from '../src/data.js';
 /* import * as main from "../src/main.js"; */
 
 export const inputTest = 
