@@ -155,7 +155,6 @@ main {
   list-style-type:none;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   }
 
 /* formato de las viñetas LI*/
@@ -343,10 +342,6 @@ input {
 
 .versus-title {
   color: rgb(88, 81, 81);
-  width:250px;
-  height: 20px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .versus-title-box {
@@ -357,6 +352,7 @@ input {
   justify-content: center;
   margin-bottom:20px;
   margin-top:20px;
+  text-align: center;
 }
 
 .choose {
@@ -372,6 +368,7 @@ input {
   background: rgba(255, 255, 255, 0.75);
   border-radius: 6px;
   overflow: hidden;
+  text-align: center;
 }
 
 .choose-container input  {
@@ -404,6 +401,7 @@ input {
   background: rgba(255, 255, 255, 0.75);
   border-radius: 6px;
   overflow: hidden;
+  text-align: center;
 }
 
 .choose-container2 input {
@@ -428,19 +426,20 @@ input {
   background: rgba(125, 133, 156, 0.75);
 }
 
-.pokemon-card-versus {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; 
-  width: 200px;
-  height: 650px;
-  padding: 20px;
-  margin: 20px;
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: 5px;
-  text-align: center;
-  }
+  .pokemon-card-versus {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    width: 200px;
+    padding: 20px;
+    margin: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 5px;
+    text-align: center;
+    }
 
   .flex {
     display: flex;
@@ -599,47 +598,55 @@ input {
     justify-content: center;
   }
 
-    .btn-nav-phone  {
-      display: flex;
-      margin-left: 0;
-      margin-right:0;
-      }
-
-    .nav-phone {
-      display: flex;
-      justify-content: center;
+  .btn-nav-phone  {
+    display: flex;
+    margin-left: 2px;
+    margin-right:2px;
     }
+
+  .nav-phone {
+    display: flex;
+    justify-content: center;
+  }
+
 
     .btn-nav-pc {
       display: none;
       }
 
-    form {
-      order: 0;
-      width: 200px;
-      justify-content: center;
-      }
+  form {
+    order: 0;
+    width: 175px;
+    justify-content: center;
+    }
+
+
+   
 
     .index{
           display: grid;
           grid-template-columns: 250px;
           }
 
-    input {
-      height: 40px;
-      width: 250px;
-      position: relative;
-      top: 0px;
-      right: -27px;
-      padding:0;
-      margin:0;
-    }
+  input {
+    height: 40px;
+    width: 200px;
+    position: relative;
+    top: 0px;
+    right: -27px;
+    padding:0;
+    margin:0;
+  }
 
     .btn-search-img {
       left: -10px;
       top: -12px;
       }
   
+
+  .modal-content{
+    right: -20px;
+  }
 
   .modal-dropdown {
     display: flex;
@@ -660,15 +667,15 @@ input {
 
 
   .choose-container {
-    margin-left: 5px;
+    margin-left: 0px;
     margin-right: 5px;
-    width: 150px;
+    width: 140px;
   }
 
   .choose-container2 {
     margin-left: 5px;
-    margin-right: 5px;
-    width: 150px;
+    margin-right: 0px;
+    width: 140px;
   }
 
   .versus-title-box {
@@ -677,13 +684,13 @@ input {
   }
 
   .pokemon-card-versus {
-    width: 110px;
-    height: 700px;
+    width: 130px;
     margin: 5px;
+    padding: 5px;
   }
 
   .versusBox {
-    width: 400px;
+    width: 300px;
   }
 
 }

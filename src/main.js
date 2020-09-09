@@ -270,7 +270,8 @@ function filterData() {
     pokemonData = DataFunctions.filterData(pokemonData, btnFilterPhone.value);
 
     boxType.style.display = 'flex';
-    nameType.innerHTML = btnFilterPhone.value.toUpperCase();
+    const percentage= (pokemonData.length)/251*100;
+    nameType.innerHTML = btnFilterPhone.value.toUpperCase() + ' (' + percentage.toFixed(2) + '% of Total)';
     showData(pokemonData);
     sortBySection.classList.remove("hidden");
     versusDisplay.style.display = 'none';
@@ -362,15 +363,12 @@ function searchVersus (e) {
     if (input === ''){
         suggestionsPanel.innerHTML='';
     } else {
-        suggestions = DataFunctions.filterByName(suggestions, e.target.value); 
-        
+        suggestions = DataFunctions.filterByName(suggestions, e.target.value.toLowerCase()); 
+
         suggestions.forEach(function(e){
         const div = document.createElement('div');
         div.innerHTML=e.name;
         suggestionsPanel.appendChild(div);
-        /*div.setAttribute('id', e.num);*/
-
-        /*div.forEach((i) => i.addEventListener('click', (e) => pokemonTemplate(e)));*/
         
         const versusCard = document.querySelector('.versus-card');
         versusCard.innerHTML = `
@@ -397,15 +395,13 @@ function searchVersus2 (e) {
     if (input === ''){
         suggestionsPanel2.innerHTML='';
     } else {
-        suggestions = DataFunctions.filterByName(suggestions, e.target.value); 
+        suggestions = DataFunctions.filterByName(suggestions, e.target.value.toLowerCase()); 
         
         suggestions.forEach(function(e){
         const div = document.createElement('div');
         div.innerHTML=e.name;
         suggestionsPanel2.appendChild(div);
         div.setAttribute('id', e.num);
-
-        /*div.forEach((i) => i.addEventListener('click', (e) => pokemonTemplate(e)));*/
         
         const versusCard = document.querySelector('.versus-card2');
         versusCard.innerHTML = `
