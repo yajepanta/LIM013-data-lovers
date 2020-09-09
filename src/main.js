@@ -249,6 +249,7 @@ function dataHome() {
     boxType.style.display = 'none';
     sortBySection.classList.remove("hidden");
     versusDisplay.style.display = 'none';
+    buttonChart.classList.remove("hidden");
 }
 
 //FUNCIÓN FILTRAR POR TIPO
@@ -278,7 +279,7 @@ function filterData() {
 
 }
 
-//searchBar. lE AGREGUÉ .toLowerCase() para que busque sea mayu o min
+//searchBar
 searchBar.addEventListener('keyup', (e) => {
     pokemonData = pokemonDataConst;
     pokemonData = DataFunctions.filterByName(pokemonData, e.target.value.toLowerCase());
@@ -322,7 +323,7 @@ function sortByLetter() {
 const moreDataModal = document.getElementById("moreDataModal");
 const contentMoreDataModal = document.getElementById("contentMoreDataModal");
 
-//Botón cerrar Card-Modal
+//Botón Cerrar Card-Modal
 const closeMoreData = document.getElementById("closeModal");
 closeMoreData.addEventListener("click", () => moreDataModal.classList.add("hidden"));
 
@@ -332,11 +333,22 @@ function showMoreData(e) {
 
     moreDataModal.classList.remove("hidden");
     moreDataModal.classList.add("moreDataModal");
-    
     contentMoreDataModal.classList.add("contentMoreDataModal");
     contentMoreDataModal.innerHTML = ` <div class="pokemon-card-modal-top">${e.currentTarget.innerHTML}</div> ${e.currentTarget.nextElementSibling.innerHTML} `;
-    
+
 }
+
+/* MODAL CON LOS GRÁFICOS */
+const buttonChart = document.getElementById("button-chart");
+buttonChart.addEventListener("click", showChart);
+
+function showChart() { 
+    moreDataModal.classList.remove("hidden");
+    moreDataModal.classList.add("moreDataModal"); 
+    contentMoreDataModal.classList.add("modalGraph");
+    contentMoreDataModal.innerHTML = `<iframe src="chart.html" title="Types Statistics"  id="chart"></iframe>`;
+}
+
 //BATALLA
 const versusBtnPc = document.getElementById("btn-versus-pc");
 const versusBtnPhone = document.getElementById("btn-versus-phone");
@@ -350,6 +362,7 @@ function showVersus () {
     sortBySection.classList.add("hidden");
     boxType.style.display = 'none';
     versusDisplay.style.display = "flex";
+    buttonChart.classList.add("hidden");
 }
 
 //input-versus

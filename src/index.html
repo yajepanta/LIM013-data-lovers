@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Data Lovers</title>
-  <link rel="stylesheet" href="style.css" />
+  <link type="text/css" rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-  <!--OPCIÓN 2 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> -->
+
 </head>
 
 <body>
@@ -43,23 +43,24 @@
 
         <input class="input-search" id="search" placeholder="Enter name of pokemon">
         <img src="img/search.svg" class="btn-search-img" style="height:32px; width:32px" />
-        </form>
-        <button class="btn-nav-phone" id="btn-versus-phone"><img src="img/fight.svg" class="versus-img" style="height:35px; width:35px"/></button>      
-        <button class="btn-nav-phone" id="btn-home-phone"><img src="img/home.png"/></button>
+      </form>
+      <button class="btn-nav-phone" id="btn-versus-phone"><img src="img/fight.svg" class="versus-img"
+          style="height:35px; width:35px" /></button>
+      <button class="btn-nav-phone" id="btn-home-phone"><img src="img/home.png" /></button>
 
-        <!-- BARRA DE NAVEGACIÓN PARA ESCRITORIO -->
-        <button type="button" class="btn-nav-pc" id="btn-home-pc"> HOME </button>
-        <button type="button" class="btn-nav-pc" id="btn-type-pc"> TYPES </button>
-        <button class="btn-nav-pc" id="btn-versus-pc"> BATTLE </button>
-        <!--<button class="btn-nav" id="type"> PÓKEDEX </button> -->
-      </nav>
-    </header>
+      <!-- BARRA DE NAVEGACIÓN PARA ESCRITORIO -->
+      <button type="button" class="btn-nav-pc" id="btn-home-pc"> HOME </button>
+      <button type="button" class="btn-nav-pc" id="btn-type-pc"> TYPES </button>
+      <button class="btn-nav-pc" id="btn-versus-pc"> BATTLE </button>
 
-    <main>
-      <div class="types-box" id="type-box"> 
-        <h2 class="types-name" id="type-name"></h2>
-      </div>
-      
+    </nav>
+  </header>
+
+  <main>
+    <div class="types-box" id="type-box">
+      <h2 class="types-name" id="type-name"></h2>
+    </div>
+
     <section class="sortBy" id="sort-by">
       <span></span>
       <select class="btn-sort" id="btn-sort-letter">
@@ -75,50 +76,54 @@
       </select>
     </section>
 
+    <section id="chartStatistics">
+      <button id="button-chart"><img src="img/graph.png"></button>
+    </section>
+
     <section class="index" id="home-index">
 
     </section>
 
     <section class="hidden" id="moreDataModal">
-      <!-- revisar clase e id repetidos -->
       <div class="closeModal" id="closeModal">+</div>
       <div id="contentMoreDataModal"></div>
     </section>
 
     <section class="versusBox" id="versus-content" style="display:none">
 
-      <div class="versus-title-box"> 
+      <div class="versus-title-box">
         <h2 class="versus-title">POKEMON BATTLE</h2>
       </div>
-        <div class="choose">
-          <div class="choose-container">
-            <p>Your pokemon</p>
-            <input class="input-versus" id="search-mine" placeholder="Enter name">
-            <div class="suggestions-panel">
+      <div class="choose">
+        <div class="choose-container">
+          <p>Your pokemon</p>
+          <input class="input-versus" id="search-mine" placeholder="Enter name">
+          <div class="suggestions-panel">
 
-            </div>
-          </div>
-          <div class="choose-container2">
-            <p>Opponent</p>
-            <input class="input-versus" id="search-opponent" placeholder="Enter name">
-            <div class="suggestions-panel2">
-
-            </div>
           </div>
         </div>
-        <!--<button class="enter-versus">Enter</button>-->
-        <div class="flex"> 
-          <div class="versus-card"></div>
-          <div class="versus-card2"></div>
+        <div class="choose-container2">
+          <p>Opponent</p>
+          <input class="input-versus" id="search-opponent" placeholder="Enter name">
+          <div class="suggestions-panel2">
+
+          </div>
         </div>
+      </div>
+
+      <div class="flex">
+        <div class="versus-card"></div>
+        <div class="versus-card2"></div>
+      </div>
     </section>
+
   </main>
 
   <footer>
-
   </footer>
 
   <script src="main.js" type="module"></script>
+
 </body>
 
 </html>
