@@ -328,9 +328,8 @@ iframe{
 .modal-content {
    width: 350px;
   height: 400px;
-  position: absolute;
+  position: fixed;
   top: +52px;
-  right: -38px;
   display: flex;
   justify-content: left;
   align-items: center;
@@ -717,21 +716,8 @@ input {
       top: -12px;
       }
   
-  .modal-content{
-    right: -20px;
-  }
-
-  .modal-dropdown {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    background-color: #14133A;
-    color: aliceblue;
-    border: none;
-    margin-right: 25px;
-    font-size: 17px;
-    font-weight: bold;
+  .modal-content {
+    left: 0;
   }
 
   .contentMoreDataModal {
