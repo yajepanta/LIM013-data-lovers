@@ -39,6 +39,9 @@
           <option value="dark"> Dark </option>
         </select>
       </div>
+      <section id="chartStatistics">
+        <button id="button-chart" class="btn-nav-phone" ><img src="img/graph.png" style="height:32px; width:32px"></button>
+      </section>
       <form>
 
         <input class="input-search" id="search" placeholder="Enter name of pokemon">
@@ -51,6 +54,7 @@
       <!-- BARRA DE NAVEGACIÓN PARA ESCRITORIO -->
       <button type="button" class="btn-nav-pc" id="btn-home-pc"> HOME </button>
       <button type="button" class="btn-nav-pc" id="btn-type-pc"> TYPES </button>
+      <button id="button-chart-pc" class="btn-nav-pc-graph" ><img src="img/graph.png" style="height:32px; width:32px"></button>
       <button class="btn-nav-pc" id="btn-versus-pc"> BATTLE </button>
 
     </nav>
@@ -76,17 +80,18 @@
       </select>
     </section>
 
-    <section id="chartStatistics">
-      <button id="button-chart"><img src="img/graph.png"></button>
-    </section>
+    
 
     <section class="index" id="home-index">
 
     </section>
 
     <section class="hidden" id="moreDataModal">
-      <div class="closeModal" id="closeModal">+</div>
       <div id="contentMoreDataModal"></div>
+    </section>
+
+    <section class="hidden" id="modal-graph">
+      <div id="content-graph"></div>
     </section>
 
     <section class="versusBox" id="versus-content" style="display:none">

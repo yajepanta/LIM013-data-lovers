@@ -83,6 +83,7 @@ nav{
     top: -15px;
     }
 
+
   /***  MAIN hijos: section "sortBy" - section index - section chartStatistics -section versus Box ***/
 
 main {
@@ -199,13 +200,13 @@ main {
 }
   
   #button-chart img {
-    height: 45px;
-    width: 45px;
+    height: 40px;
+    width: 40px;
   }   
   
 iframe{
     height: 650px;
-    width: 350px;
+    width: 320px;
     background-color: honeydew;
     border:none;
 } 
@@ -214,7 +215,7 @@ iframe{
   display: flex;
   flex-direction: column;
   width: 30vw;
-  height: 800px;
+  height: 500px;
   padding: 5px;
   background: rgba(255, 255, 255, 0.9);
   text-align: center;
@@ -223,6 +224,20 @@ iframe{
   border-radius: 5px;
   font-size: 16px;
 } 
+
+.graph {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  margin-right: auto;
+  margin-left: auto;
+  background: rgba(0, 0, 0, 0.8);
+  width: 125vw;
+  height: 100vh;
+  }
+  
 /* Contenido de la Ventana Modal (tarjeta pokémon) */
   .contentMoreDataModal {
     display: flex;
@@ -256,7 +271,7 @@ iframe{
       color: white;
       }
         /* nombre, número e imagen */
-      .pokemon-card-modal-top div:first-child {
+      .pokemon-card-modal-top  {
         display: flex; 
         flex-direction: column;
         background: #14133A;
@@ -274,9 +289,7 @@ iframe{
         }
 
         /* lista con los tipos */
-      .pokemon-card-modal-top ul{
-        flex-direction: column;
-      }
+      
 
     /* Ventana Modal. Sección de evolución */
     .evolution {
@@ -506,6 +519,22 @@ input {
     font-weight: bold;
     } 
 
+    .btn-nav-pc-graph {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 30px;
+      background-color: #14133A;
+      color: aliceblue;
+      border: none;
+      margin-right: 0px;
+      position: relative;
+      left: -40px;
+      font-size: 17px;
+      font-weight: bold;
+      } 
+
     nav {
       justify-content: flex-end;
     }
@@ -659,9 +688,12 @@ input {
       display: none;
       }
 
+      .btn-nav-pc-graph {
+        display: none;
+        }
   form {
     order: 0;
-    width: 175px;
+    width: 135px;
     justify-content: center;
     }
 
@@ -672,7 +704,7 @@ input {
 
   input {
     height: 40px;
-    width: 200px;
+    width: 125px;
     position: relative;
     top: 0px;
     right: -27px;
@@ -701,6 +733,25 @@ input {
     font-size: 17px;
     font-weight: bold;
   }
+
+  .contentMoreDataModal {
+    width: 70vw;
+    padding: 1px;
+  }
+
+  .modalGraph {
+    width: 85vw;
+  }
+
+  .graph {
+    left: -55px;
+    }
+
+  .graphText {
+    width: 310px;
+    background-color: honeydew;
+  }
+    
 
   .types-box {
     width: 280px;
