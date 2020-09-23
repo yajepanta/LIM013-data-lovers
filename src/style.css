@@ -213,7 +213,7 @@ iframe{
 .modalGraph {
   display: flex;
   flex-direction: column;
-  width: 30vw;
+  width: 80vw;
   height: 800px;
   padding: 5px;
   background: rgba(255, 255, 255, 0.9);
@@ -555,6 +555,7 @@ input {
 .modalGraph {
   display: flex;
   align-items: center;
+  width: 30vw;
   height: 800px;
   padding: 5px;
   background: rgba(255, 255, 255, 0.9);

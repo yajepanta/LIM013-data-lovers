@@ -272,7 +272,7 @@ function filterData() {
 
     boxType.style.display = 'flex';
     const percentage= (pokemonData.length)/251*100;
-    nameType.innerHTML = btnFilterPhone.value.toUpperCase() + ' (' + percentage.toFixed(2) + '% of Total)';
+    nameType.innerHTML = btnFilterPhone.value.toUpperCase() + ' <br>(' + percentage.toFixed(1) + '%)';
     showData(pokemonData);
     sortBySection.classList.remove("hidden");
     versusDisplay.style.display = 'none';
