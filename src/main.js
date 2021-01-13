@@ -18,6 +18,15 @@ const nameType = document.getElementById("type-name");
 const boxType = document.getElementById("type-box");
 const searchBar = document.getElementById("search");
 
+/* CAMBIA COLOR DE LA BARRA DE NAVEGACIÓN */
+window.addEventListener("scroll", () => {
+    document.querySelector("header").classList.add("header-scroll");
+    if (window.pageYOffset === 0) {
+    document.querySelector("header").classList.remove("header-scroll");
+    }
+    })
+
+    
 const searchMine = document.getElementById('search-mine');
 const searchOpp = document.getElementById('search-opponent');
 const suggestionsPanel = document.querySelector('.suggestions-panel');
@@ -194,10 +203,11 @@ function pokemonTemplate(pokemon) {
 
     return `
         <div class="pokemon-card">
-            <div> <p>${pokemon.num}</p>
+            <div class="pokemon-card-header"> <p>${pokemon.num}</p>
             <h2>${pokemon.name}</h2>
-            <img class="pokemon-img" src="${pokemon.img}">
             </div>
+            <img class="pokemon-img" src="${pokemon.img}">
+            
 
             <div class="types">${typesList(pokemon.type)} </div>
         </div>
@@ -206,24 +216,30 @@ function pokemonTemplate(pokemon) {
             <div class="pokemon-card-modal">
                 <div>
                 <h3>Resistant</h3>
+                <hr>
                 ${typesList(pokemon.resistant)}
                 </div>
                 <div>
                 <h3>Weaknesses</h3>
+                <hr>
                 ${typesList(pokemon.weaknesses)}
                 </div>
                 <div>
-                <h3>Special attacks</h3>   
+                <h3>Special attacks</h3>
+                <hr> 
                 ${attackList(pokemon["special-attack"])}
                 </div>
                 <div>
-                <h3>Quick moves</h3>   
+                <h3>Quick moves</h3>
+                <hr>
                 ${attackList(pokemon["quick-move"])}
                 </div>
             </div>
             <div>
-                <h3>Evolution</h3>
+            <h3>Evolution</h3>
+            
                 <div class="evolution">
+                
                     ${evolutionList(pokemon)} 
                     <ul class="poke-types">
                         <li class="poke-list"> ${pokemon["buddy-distance-km"]} eggs</li>
@@ -276,7 +292,6 @@ function filterData() {
     showData(pokemonData);
     sortBySection.classList.remove("hidden");
     versusDisplay.style.display = 'none';
-
 }
 
 //searchBar
@@ -324,9 +339,6 @@ const moreDataModal = document.getElementById("moreDataModal");
 const contentMoreDataModal = document.getElementById("contentMoreDataModal");
 
 //Botón Cerrar Card-Modal
-const closeMoreData = document.getElementById("closeModal");
-closeMoreData.addEventListener("click", () => moreDataModal.classList.add("hidden"));
-
 moreDataModal.addEventListener("click", (e) => e.target.id === "moreDataModal" ? moreDataModal.classList.add("hidden") : "" );
 
 function showMoreData(e) {
@@ -334,19 +346,30 @@ function showMoreData(e) {
     moreDataModal.classList.remove("hidden");
     moreDataModal.classList.add("moreDataModal");
     contentMoreDataModal.classList.add("contentMoreDataModal");
-    contentMoreDataModal.innerHTML = ` <div class="pokemon-card-modal-top">${e.currentTarget.innerHTML}</div> ${e.currentTarget.nextElementSibling.innerHTML} `;
+    contentMoreDataModal.innerHTML = `<div class="pokemon-card-modal-top">${e.currentTarget.innerHTML}</div> ${e.currentTarget.nextElementSibling.innerHTML} `;
 
 }
 
 /* MODAL CON LOS GRÁFICOS */
 const buttonChart = document.getElementById("button-chart");
+const buttonChartPc = document.getElementById("button-chart-pc");
+buttonChartPc.addEventListener("click", showChart);
 buttonChart.addEventListener("click", showChart);
 
+const modalGraph = document.getElementById('modal-graph');
+const contentGraph = document.getElementById('content-graph');
+modalGraph.addEventListener("click", (e) => e.target.id === "modal-graph" ? modalGraph.classList.add("hidden") : "" );
+
 function showChart() { 
-    moreDataModal.classList.remove("hidden");
-    moreDataModal.classList.add("moreDataModal"); 
-    contentMoreDataModal.classList.add("modalGraph");
-    contentMoreDataModal.innerHTML = `<iframe src="chart.html" title="Types Statistics"  id="chart"></iframe>`;
+    modalGraph.classList.remove("hidden");
+    modalGraph.classList.add("graph"); 
+    contentGraph.classList.add("modalGraph");
+    contentGraph.innerHTML = `
+    <div class='graphText'>
+    <h2>Graph: Number of pokemons by type</h2>
+    </div>
+    <iframe src="chart.html" title="Types Statistics"  id="chart"></iframe>
+    `;
 }
 
 //BATALLA

@@ -1,4 +1,19 @@
 # DATA-LOVERS: POKÉMON
+![](imag/header.jpg)
+
+## Producto final
+
+
+## Definición del Producto
+
+#### ¿Quiénes son los usuarios?
+Usuarios jugadores de PokemonGO, con conocimiento medio del juego (no principiantes).
+
+#### ¿Cómo el producto soluciona las necesidades del usuario?
+Nuestro producto da información que el jugador de POkemonGO necesita para completar su Pokedex y ganar en batallas Pokemon, todo en una misma págia web intuitiva y fácil de manejar.
+
+#### Objetivos del producto
+Ser fuente de información, útil y concisa para los usuarios jugadores de PokemonGO.
 
 ## Investigación de usuarios
 
@@ -109,13 +124,10 @@ Nuestros prototipos de baja fidelidad fueron hecho a lápiz y papel para poder i
 
 Luego, se diseñó un sistema de flujo por el cual el usuario observaría el sitio web, y se realizó en versión móvil. En esta etapa, se estableció crear dos funcionalidad aparte de el filtrado y ordenamiento de tarjetas. Debido al feedback que obtuvimos de los cuestionarios online, consideramos una ventana "Comparar" donde se pueden seleccionar 2 pokemon (el propio y el del oponente) para comparar las habilidades y ataques de ambos, y otra ventana de "Pokedex" donde el usuario puede seleccionar aquellos pokemons que ya ha capturado para poder visualizar aquellos que le faltan para completar su pokedex.
 
-![](imag/s3.jpeg)
-![](imag/s4.jpg)
-![](imag/s5.jpeg)
-![](imag/s6.jpg)
-![](imag/s7.jpeg)
+![](imag/protBAJA.jpg)
 
-TESTS CON USUARIOS
+
+### TESTS CON USUARIOS
 * La barra de navegación no era clara pues consistía en 2 filas. Una con el botón menu y el buscador, y otra debajo con los botones de filtrado. Se consideraba que no había jerarquía, y era confuso si se podía o no seleccionar solo 1 a la vez, o si se podía hacer click a todos.
 * Se comentó que no era necesario tener un ícono de "home" y otro de "menú", sino que se decidiera por uno solo de menú, o se pusieran los botones de las diferentes ventanas uno al lado del otro.
 * La idea de colocar una tarjeta a la vez en la pantalla móvil fue bien recibida, pues era fácil de visualizar y no agobiaban visualmente al usuario.
@@ -125,6 +137,7 @@ Se tomaron en cuenta las opiniones de los usuarios y se decidió:
 * Colocar una barra de navegación con un color llamativo con los botones de "Home", "Types" y el buscador.
 * La ventana donde se visualizan los pokemons contedría una caja con un color distinto que contiene los selectores de "By name" y "By number". De esta forma, sería claro para el usuario que esta caja aplica a los pokemones visibles en la ventana luego de ser elegidos por tipo.
 
+#### Diseño Desktop
 ![](imag/d1.png)
 ![](imag/d2.png)
 ![](imag/d3.png)
@@ -133,7 +146,11 @@ Se tomaron en cuenta las opiniones de los usuarios y se decidió:
 ![](imag/d6.png)
 ![](imag/d7.png)
 
-## HISTORIAS
+#### Diseño Móvil
+![](imag/protphone.png)
+![](imag/protphone2.png)
+
+## Implementación de la interfaz de usuario
 
 ### Historia 1
 Yo, como jugador avanzado de pokemonGO, quiero visualizar los pokemons por número (1-9) y de menor a mayor, para encontrarlos fácilmente.
@@ -168,4 +185,66 @@ Yo, como jugador avanzado de pokemonGO, quiero visualizar los pokemons por orden
 * Recibir feedback de por lo menos 3 usuarios.
 
 Se estableció un fondo de pantalla con colores más vivos que contraste con la barra de navegación y las tarjetas. Además, el sitio web ahora tiene contenido solo en inglés. 
+
+### Historia 3
+Yo,como jugador regular de pokemonGO, quiero tener la opción de filtrar los pokemons por tipo, para ver los pokemons que pertenecen al tipo que busco.
+
+#### Criterios de aceptación
+* El jugador visualiza un botón en la barra de navegación para filtrar por tipo.
+* El jugador visualiza un select con las opciones de filtrar por tipo.
+* El jugador visualiza el nombre del tipo que selecciona y las tarjetas de los pokemones de ese tipo debajo.
+* El jugador visualiza el número de pokemones que pertecen a cada tipo.
+#### Definición de terminado
+* Pasar el test
+* Diseño responsive
+* La función para filtrar por tipo desde el select funciona.
+* La función de conteo de pokemon funciona por tipo.
+* Recibir feedback de por lo menos 3 usuarios.
+
+### Historia 4
+Yo, como jugador avanzado, quiero buscar a mis pokemones directamente por nombre, para conocer todas sus características.
+
+#### Criterios de aceptación
+* El jugador visualiza un input con el símbolo de buscador e la barra de navegación.
+* El jugador visualiza los pokemones filtrados desde que se ingresa la primera letra al input.
+* El jugador visualiza el nombre del tipo que selecciona y las tarjetas de los pokemones de ese tipo debajo.
+* El jugador visualiza el número de pokemones que coinciden con las letras que se van ingresando.
+#### Definición de terminado
+* Diseño responsive
+* La función para filtrar a medida que se ingresa valores al input funciona.
+* La función de conteo de pokemon funciona desde el ingreso de la primera letra.
+* Recibir feedback de por lo menos 3 usuarios.
+
+Compartimos nuestra idea para la próxima historia, qque consiste en ir a otra sección luego de hacer click a la tarjeta de pokemon que muestre sus características. Debido al feedback se decide crear una ventana modal en lugar de que aparezca en lugar de la pestaña de inicio, pues no permitiría volver a las tarjetas filtradas sino al inicio general con todos los pokemones.
+
+### Historia 5
+Yo, como jugador experto de pokemonGO, quiero visualizar las características, fortalezas y debilidades de cada pokemon, para saber cuál elegir en una pelea.
+
+#### Criterios de aceptación
+* El jugador visualiza una ventana modal al hacer click en una de las trajetas de pokemon.
+* El jugador visualiza las características principales del pokemon deltro de la ventana modal.
+* El jugador deja de vosualizar esta ventana modal al hacer click en la "x".
+#### Definición de terminado
+* Diseño responsive
+* La ventana modal sigue el modelo del prototipo.
+* La función de seleccionar un pokemon y ver sus características en la ventana funciona.
+* La función de cerrar la ventana modal funciona.
+* Recibir feedback de por lo menos 3 usuarios.
+
+
+### Historia 6
+Yo, como jugador en combate, quiero saber el tipo de pokémon que tengo, sus contra que tipos son débiles  o fuertes, y los mismos datos del pokemon de mi rival, para elegir aquel que tenga más posibilidades de ganar.
+
+#### Criterios de aceptación
+* El jugador visualiza un botón "Battle" en la barra de navegación.
+* El jugador visualiza una ventana con dos inputs: "mi pokemon" y "pokemon oponente".
+* El jugador visualiza una lista con sugerencias desplegada del input desde que ingresa la primera letra.
+* El jugador visualiza las tarjetas de los pokemones seleccionados en cada input, lado a lado.
+#### Definición de terminado
+* Diseño responsive
+* Esta sección sigue el modelo del prototipo.
+* La función de dessplegar las sugerencias en el input funciona.
+* La función de mostrar las tarjetas con el input funciona.
+* Recibir feedback de por lo menos 3 usuarios.
+* Subir a gh-pages.
 

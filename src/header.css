@@ -1,0 +1,132 @@
+header {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.75);
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  width: 200px;
+  margin: 15px;
+  transform: rotate(-5deg);
+}
+
+.header-scroll {
+
+  background-color: #ffffff;
+}
+
+header > nav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 45px;
+}
+
+.btn-nav-phone {
+  display: none;
+}
+/* FORM hijos: input search y btn-nav-phone, estos deben estar pegados */
+
+form {
+  display: flex;
+  flex-direction: row;
+  order: 2;
+}
+
+form input {
+  height: 38px;
+  width: 150px;
+  border: 1.5px black solid;
+  font-size: 14px;
+  border-radius: 3px;
+}
+.btn-nav-pc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+  background-color: inherit;
+  color: black;
+  border: none;
+  margin-right: 25px;
+  font-size: 17px;
+  font-weight: 900;
+}
+.btn-search-img {
+  position: relative;
+  top: 5px;
+  left: -20px;
+}
+nav {
+  justify-content: flex-end;
+}
+
+/* CEL */
+@media screen and (max-width: 501px) {
+  header {
+    flex-direction: column;
+  }
+
+  .btn-nav-phone {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    margin: 2px;
+    height: 45px;
+    width: 45px;
+    justify-content: center;
+    position: relative;
+    top: -2px;
+  }
+
+  .btn-nav-phone img {
+    height: 35px;
+    width: 35px;
+    position: relative;
+    top: 3px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: row;
+    order: 2;
+  }
+
+  .logo {
+    width: 65px;
+  }
+  .btn-nav-phone {
+    display: flex;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  .nav-phone {
+    display: flex;
+    justify-content: space-around;
+    width: 80vw;
+  }
+
+  .btn-nav-pc {
+    display: none;
+  }
+
+  form {
+    order: 0;
+    justify-content: center;
+  }
+
+  input {
+    height: 40px;
+    width: 125px;
+    position: relative;
+    top: 0px;
+    right: -27px;
+    padding: 0;
+    margin: 0;
+  }
+}
