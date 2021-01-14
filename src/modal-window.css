@@ -1,9 +1,21 @@
+.moreDataModal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+}
 /* Contenido de la Ventana Modal (tarjeta pokémon) */
 .contentMoreDataModal {
   display: flex;
   flex-direction: column;
   width: 90vw;
-  height: 955px;
+  height:fit-content;
   padding: 5px;
   background: rgba(255, 255, 255, 0.9);
   text-align: center;
@@ -13,38 +25,76 @@
   font-size: 16px;
 }
 
-/* .pokemon-card-modal {
+.pokemon-card-modal {
   display: flex;
   flex-direction: column;
   align-items: center;
-} */
+}
 /* títulos dentro de la ventana modal */
 .pokemon-card-modal > div > h3 {
   margin: 5px;
   font-size: 15px;
 }
+.pokemon-card-modal > div > .poke-types > .poke-list {
+  padding: 10px;
+    min-width: 100px;
+}
 
 /* Parte superior de la ventana modal (num, nom, img y tipos) */
 .pokemon-card-modal-top {
   display: flex;
-  /* justify-content: space-around; */
+  justify-content: space-around;
   align-items: center;
   color: white;
   display: flex;
   background: #1d2c5e;
-  /* border-radius: 5px; */
-  font-size: 15px;
+  border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  font-size: 30 px;
 }
 /* Elementos de manera individual para darles margen */
 /*  .pokemon-card-modal-top div:first-child > p, .pokemon-card-modal-top div:first-child > h2 {
           margin-left: -150px;
         } */
-.pokemon-card-modal-top div:first-child img {
+/* .pokemon-card-modal-top div:first-child img {
   margin-left: 110px;
-  margin-top: -120px;
+  margin-top: -1200px;
+} */
+.pokemon-card-modal-top > .pokemon-card-header {
+  line-height: 15px;
+}
+.pokemon-card-modal-top > img {
+  width: 200px;
+  height: 200px;
+  z-index: 3;
 }
 
+.pokemon-card-modal {
+  display: flex;
+  /*  */flex-direction: row;
+  border-radius: 25px;
+  width: inherit;
+  background-color: #ffffff;
+  margin-top: -58px;
+  padding-top: 35px;
+  padding-bottom: 10px;
+  z-index: 2;
+  /*  */align-items: baseline;
+}
+
+/* .pokemon-card-modal > div {
+  max-width: 250px;
+} */
 /* Ventana Modal. Sección de evolución */
+.pokemon-card-modal-bottom{
+  background: #1d2c5e;
+    margin-top: -25px;
+    padding-top: 20px;
+    z-index: 1;
+    color: #ffffff;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
 .evolution {
   display: flex;
   flex-direction: row;
@@ -83,22 +133,28 @@
 }
 /* SECTION: More Data - Modal  */
 
-.moreDataModal {
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.8);
-  width: 100vw;
-  height: 100vh;
-}
 
+
+.evolution-card {
+  border: 1px solid #ffffff;
+  color: white;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 5px;
+  width: 300px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+.evolution-card > ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 14px;
+}
 #closeModal {
   position: absolute;
-  /* width: 850px; */
+  margin-left: -82%;
+  margin-top: 2%;
   font-size: 42px;
   cursor: pointer;
   color: rgb(209, 206, 47);
@@ -124,12 +180,15 @@
   }
   .pokemon-card-modal-top > img {
     z-index: 3;
+    width: 150px;
+    height: 150px;
   }
   /* nombre, número dentro de ventana modal*/
   .pokemon-card-modal-top div:first-child {
     display: flex;
     justify-content: space-between;
     padding-top: 5px;
+    margin-top: 30px;
     font-size: 13px;
   }
   .pokemon-card-header {
@@ -139,6 +198,7 @@
   .poke-types {
     justify-content: center;
   }
+  /* Debe estar dentro de la clase ventana modal */
   .poke-types > .poke-list {
     min-width: 70px;
   }
@@ -167,7 +227,6 @@
   }
 
   .evolution-card {
-    /* background: #ffff; */
     border: 1px solid #ffffff;
     color: white;
     justify-content: center;
@@ -181,12 +240,9 @@
   .evolution-card > ul {
     display: flex;
     justify-content: space-evenly;
-    /* flex-direction: column; */
     align-items: center;
     font-size: 14px;
   }
 }
 /* --------------------------------------FIN CELULAR------------ */
-@media screen and (min-width: 501px) {
 
-}
