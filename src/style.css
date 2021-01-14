@@ -5,11 +5,9 @@
 
 * {
   font-family: "Roboto", sans-serif;
-  font-weight: bold;
 }
 
-html,
-body {
+html, body {
   margin: 0px;
   background: url("img/background-day.jpg"), rgba(251, 251, 251, 0.24);
   background-attachment: fixed;
@@ -17,10 +15,9 @@ body {
   display: flex;
   flex-direction: column;
   width: 100vw;
+  font-weight: bold;
   text-transform: capitalize;
 }
-
-/*  MAIN hijos: section "sortBy" - section index - section chartStatistics -section versus Box */
 
 main {
   display: flex;
@@ -40,6 +37,7 @@ main .sortBy {
   height: 48px;
   background: rgba(255, 255, 255, 0.75);
   border-radius: 3px;
+  color: #1D2C5E;
 }
 
 /* Texto que contiene el número de pokemons */
@@ -100,10 +98,6 @@ main span {
   display: none;
 }
 
-.pokemon-card-modal-top > .types {
-  display: none;
-}
-
 .hidden {
   display: none;
 }
@@ -112,24 +106,6 @@ main span {
   left: 0;
 }
 
-.contentMoreDataModal {
-  width: 95vw;
-  height: 95vh;
-  padding: 1px;
-}
-
-.modalGraph {
-  width: 85vw;
-}
-
-.graph {
-  left: -55px;
-}
-
-.graphText {
-  width: 310px;
-  background-color: honeydew;
-}
 
 .types-box {
   width: 280px;

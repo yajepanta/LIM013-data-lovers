@@ -39,9 +39,10 @@ form {
 form input {
   height: 38px;
   width: 150px;
-  border: 1.5px black solid;
+  border: 1.5px#1D2C5E solid;
   font-size: 14px;
   border-radius: 3px;
+  
 }
 .btn-nav-pc {
   display: flex;
@@ -50,10 +51,11 @@ form input {
   width: 100px;
   height: 30px;
   background-color: inherit;
-  color: black;
+  color: #1D2C5E;
   border: none;
   margin-right: 25px;
-  font-size: 17px;
+  font-size: 19px;
+  
   font-weight: 900;
 }
 .btn-search-img {

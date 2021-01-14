@@ -1,194 +1,192 @@
 /* Contenido de la Ventana Modal (tarjeta pokémon) */
-  .contentMoreDataModal {
-    display: flex;
-    flex-direction: column;
-    width: 90vw;
-    height: 955px;
-    padding: 5px;
-    background: rgba(255, 255, 255, 0.9);
-    text-align: center;
-    font-weight: bold;
-    color: black;
-    border-radius: 5px;
-    font-size: 16px;
-    
-  }
-  
-    .pokemon-card-modal{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      }
-      /* títulos dentro de la ventana modal */
-      .pokemon-card-modal  > div  > h3 {
-        margin: 5px;
-        font-size: 15px;
-      }
-
-      /* Parte superior de la ventana modal (num, nom, img y tipos) */
-    .pokemon-card-modal-top {
-      display: flex; 
-      justify-content: space-around;
-      align-items: center;
-      color: white;
-      }
-        /* nombre, número e imagen */
-      .pokemon-card-modal-top  {
-        display: flex; 
-        background: #14133A;
-        border-radius: 5px;
-        font-size: 15px;
-      }
-        /* Elementos de manera individual para darles margen */
-        .pokemon-card-modal-top div:first-child > p, .pokemon-card-modal-top div:first-child > h2 {
-          margin-left: -150px;
-        }
-        .pokemon-card-modal-top div:first-child img {
-          margin-left: 110px;
-          margin-top: -120px;
-        }
-
-        /* Ventana Modal. Sección de evolución */
-    .evolution {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-    }
-      .evolution-img {
-      height: 90px;
-      width: 90px;
-      }
-    /* contiene a las cards de las evoluciones */
-      .evolution-container{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-        /* contiene a las cards de las evoluciones individualmente */
-        .evolution-card{
-          background: #14133A;
-          color: white;
-          justify-content: center;
-          border-radius: 5px;
-          padding: 8px;
-          width: 140px;
-          margin-top: 10px;
-        }
-          /* las listas dentro de las tarjetas individuales */
-          .evolution-card  > ul{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 14px;
-          }
-
-
-@media screen and (min-width: 501px)  {
-  .modal-content {
-    width: 350px;
-    height: 400px;
-    position: relative;
-    top: -50px;
-    right: -480px;
-    
-  }
-
-.moreDataModal {
-display: flex;
-align-content: center;
-justify-content: center;
-top: 0;
-bottom: 0;
-left: 0;
-right: 0;
-background: rgba(0, 0, 0, 0.8);
-width: 100vw;
-height: 100vh;
-
-}
-
-.closeModal {
-  position: absolute;
-  top: 0;
-  left: 840px;
-  font-size: 42px;
-  transform: rotate(45deg);
-  cursor: pointer;
-  color: black;
-}
-
 .contentMoreDataModal {
   display: flex;
   flex-direction: column;
-  width: 35vw;
-  padding: 15px;
+  width: 90vw;
+  height: 955px;
+  padding: 5px;
   background: rgba(255, 255, 255, 0.9);
+  text-align: center;
   font-weight: bold;
   color: black;
   border-radius: 5px;
-  /* overflow: scroll; */
+  font-size: 16px;
 }
 
-  .pokemon-card-modal{
-    display: grid;
-    grid-template-columns: 250px 250px ;
-    justify-content: space-around;
-    text-align: center;
-    align-items: flex-start;
+/* .pokemon-card-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+/* títulos dentro de la ventana modal */
+.pokemon-card-modal > div > h3 {
+  margin: 5px;
+  font-size: 15px;
+}
+
+/* Parte superior de la ventana modal (num, nom, img y tipos) */
+.pokemon-card-modal-top {
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+  color: white;
+  display: flex;
+  background: #1d2c5e;
+  /* border-radius: 5px; */
+  font-size: 15px;
+}
+/* Elementos de manera individual para darles margen */
+/*  .pokemon-card-modal-top div:first-child > p, .pokemon-card-modal-top div:first-child > h2 {
+          margin-left: -150px;
+        } */
+.pokemon-card-modal-top div:first-child img {
+  margin-left: 110px;
+  margin-top: -120px;
+}
+
+/* Ventana Modal. Sección de evolución */
+.evolution {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.evolution-img {
+  height: 90px;
+  width: 90px;
+}
+/* contiene a las cards de las evoluciones */
+.evolution-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+/* contiene a las cards de las evoluciones individualmente */
+/* .evolution-card {
+  background: #14133a;
+  color: white;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 8px;
+  width: 140px;
+  margin-top: 10px;
+} */
+/* las listas dentro de las tarjetas individuales */
+/* .evolution-card > ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+} */
+
+.pokemon-card-modal-top > .types {
+  display: none;
+}
+/* SECTION: More Data - Modal  */
+
+.moreDataModal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+}
+
+#closeModal {
+  position: absolute;
+  /* width: 850px; */
+  font-size: 42px;
+  cursor: pointer;
+  color: rgb(209, 206, 47);
+}
+
+/*---------------------------------------- celular */
+@media screen and (max-width: 601px) {
+  .contentMoreDataModal {
+    width: 95%;
+    height: 95vh;
+    overflow-y: scroll;
+    border-radius: 20px;
+    font-size: 14px;
   }
 
-    .pokemon-card-modal  > div  > h3 {
-      margin: 20px;
-      line-height: 1px;
-    }
-
-    /* nombre, número e imagen y tipos dentro de ventana modal */
+  /* Parte superior de la ventana modal (num, nom, img y tipos) */
   .pokemon-card-modal-top {
-    display: flex; 
-    justify-content: space-around;;
-  }  
-    /* nombre, número e imagen dentro de ventana modal*/
-    .pokemon-card-modal-top div:first-child {
-      display: flex; 
-      flex-direction: column;
-      background: #14133A;
-      padding: 20px;
-      border-radius: 5px;
-    }
-
-      .pokemon-card-modal-top div:first-child > p, .pokemon-card-modal-top div:first-child > h2 {
-        margin-left: -120px;
-      }
-
-      .pokemon-card-modal-top div:first-child img {
-        margin-left: 120px;
-        margin-top: -120px;
-      }
-  /* Contiene a las evoluciones más el nro de huevos (evolution y evolution container)*/
-  .contentMoreDataModal > div:nth-child(3){
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 15px;
+    flex-direction: column;
+    height: 28.5%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
   }
-  
-  .evolution {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  .pokemon-card-modal-top > img {
+    z-index: 3;
   }
-    /* Lista con el número de huevos / kilómetros */
-    .evolution > ul  {
-        height: 15px;
-    }
-  /* Tarjeta con la evolución */  
-  .evolution-container{
+  /* nombre, número dentro de ventana modal*/
+  .pokemon-card-modal-top div:first-child {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    width: 350px;
-    margin-left:15px;
+    padding-top: 5px;
+    font-size: 13px;
   }
- 
-          }
+  .pokemon-card-header {
+    line-height: 5px;
+    color: #ffffff;
+  }
+  .poke-types {
+    justify-content: center;
+  }
+  .poke-types > .poke-list {
+    min-width: 70px;
+  }
+  #closeModal {
+    margin: 3% 0 0 -75%;
+  }
+  .pokemon-card-modal {
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    background-color: #ffffff;
+    margin-top: -20px;
+    padding-top: 35px;
+    padding-bottom: 10px;
+    z-index: 2;
+  }
+
+  .pokemon-card-modal-bottom {
+    background: #1d2c5e;
+    margin-top: -20px;
+    padding-top: 20px;
+    z-index: 1;
+    color: #ffffff;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .evolution-card {
+    /* background: #ffff; */
+    border: 1px solid #ffffff;
+    color: white;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 5px;
+    width: 140px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+  }
+
+  .evolution-card > ul {
+    display: flex;
+    justify-content: space-evenly;
+    /* flex-direction: column; */
+    align-items: center;
+    font-size: 14px;
+  }
+}
+/* --------------------------------------FIN CELULAR------------ */
+@media screen and (min-width: 501px) {
+
+}
