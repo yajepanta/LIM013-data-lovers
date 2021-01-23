@@ -63,13 +63,16 @@ main span {
   grid-template-columns: 250px 250px 250px 250px;
 }
 /* lista con los tipos */
-
+.btn-type-phone {
+  position: relative;
+}
 /* Menú modal con los tipos */
 .modal-content {
+  position: absolute;
   width: 350px;
-  height: 400px;
-  position: fixed;
-  top: +52px;
+  height: 200px;
+  top: -20px;
+  margin-top: 90px;
   display: flex;
   justify-content: left;
   align-items: center;
@@ -81,10 +84,10 @@ main span {
   justify-content: center;
   align-items: center;
   width: 100px;
-  background-color: #14133a;
-  color: aliceblue;
+  background: rgba(255, 255, 255, 0.85);
+  color: black;
   border: none;
-  margin-right: 25px;
+  margin-left: -80px;
   font-size: 17px;
   font-weight: bold;
 }
@@ -101,11 +104,6 @@ main span {
 .hidden {
   display: none;
 }
-
-.modal-content {
-  left: 0;
-}
-
 
 .types-box {
   width: 280px;
@@ -142,5 +140,28 @@ main span {
 .index {
   display: grid;
   grid-template-columns: 250px;
+}
+.modal-content {
+  position: absolute;
+  width: 350px;
+  height: 200px;
+  top: 20px;
+  margin-top: 90px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  display: none;
+}
+.modal-dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  background: rgba(255, 255, 255, 0.85);
+  color: black;
+  border: none;
+  margin-left: 0px;
+  font-size: 17px;
+  font-weight: bold;
 }
 }
